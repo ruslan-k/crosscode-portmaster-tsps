@@ -10,7 +10,7 @@ set -euo pipefail
 GAMEDIR=${1:?usage: install.sh <port dir> [assets dir]}
 ASSETS=${2:-}
 HERE=$(cd "$(dirname "$0")" && pwd)
-QUIXJS_VERSION=0.2.1
+QUIXJS_VERSION=0.2.2
 URL="https://github.com/lowlevel-1989/quixjs/releases/download/${QUIXJS_VERSION}/quixjs-${QUIXJS_VERSION}-linux-aarch64.tar.gz"
 
 mkdir -p "$GAMEDIR/gamedata"

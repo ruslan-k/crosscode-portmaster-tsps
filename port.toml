@@ -10,6 +10,7 @@ canvas_id = "canvas"
 
 [game]
 title     = "CrossCode"
+version   = "1.0.0"   # the port's version: bump it with every port change
 id        = "crosscode"
 game_dir  = "gamedata/assets"
 cache_dir = "cache/gamedata"

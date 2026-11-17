@@ -1,7 +1,7 @@
 # CrossCode — PortMaster port for TrimUI Smart Pro (SpruceOS)
 
 Port of **CrossCode 1.4.2-2** to the TrimUI Smart Pro (TSPS, 1280x720, Mali-G57)
-running the game's own web assets on **quixjs 0.2.1** — a JS runtime in C
+running the game's own web assets on **quixjs 0.2.2** — a JS runtime in C
 (JavaScriptCore + SDL2 + OpenGL ES 2), https://github.com/lowlevel-1989/quixjs.
 No Electron, no Chromium, no browser.
 
@@ -39,7 +39,7 @@ Game data is **not** included.
    cp CrossCode.sh port.json gameinfo.xml /mnt/SDCARD/Roms/PORTS/
    ```
 
-   `install.sh` downloads `quixjs-0.2.1-linux-aarch64.tar.gz` from the quixjs
+   `install.sh` downloads `quixjs-0.2.2-linux-aarch64.tar.gz` from the quixjs
    release, unpacks `quixjs.aarch64`, `libs.aarch64/`, `fonts/`, copies the
    assets into `gamedata/assets/`, installs `ccx-boot.js` there and drops
    `port.toml` next to them.
@@ -90,7 +90,9 @@ Other knobs, in the launcher and the toml:
   JavaScriptCore + SDL2 + GLES2 runtime this port is built on, including the
   nw.js layer, the SDL backend and the aarch64 release used here. Everything
   under `crosscode-qx/{quixjs.aarch64,libs.aarch64,fonts}` comes from its
-  `0.2.1` release.
+  `0.2.2` release. Since 0.2.2 `libs/` only carries what the CFW does not
+  (SDL2_ttf, libvpx, libopus); SDL2, SDL2_image, freetype and libpng come from
+  SpruceOS.
 * CrossCode and its assets — Radical Fish Games.
 
 ## Known issues
