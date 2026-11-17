@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gameList>
+    <game>
+        <path>./CrossCode.sh</path>
+        <name>CrossCode</name>
+        <desc>2D action-RPG в мире MMO: головоломки, платформинг и бои в реальном времени. Родные веб-ассеты игры на quixjs (JavaScriptCore + SDL2 + GLES2), без браузера.</desc>
+        <rating>0.88</rating>
+        <releasedate>20180920T000000</releasedate>
+        <developer>Radical Fish Games</developer>
+        <publisher>Deck13</publisher>
+        <genre>Action RPG</genre>
+        <players>1</players>
+        <image>./screenshot.png</image>
+    </game>
+</gameList>

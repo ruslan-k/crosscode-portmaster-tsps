@@ -1,0 +1,43 @@
+{
+    "version": 4,
+    "name": "crosscode.zip",
+    "items": [
+        "CrossCode.sh",
+        "crosscode-qx"
+    ],
+    "items_opt": null,
+    "attr": {
+        "title": "CrossCode",
+        "porter": [
+            "ruslan"
+        ],
+        "desc": "CrossCode — 2D action-RPG про девушку в мире MMO: головоломки, платформинг и бои в реальном времени. Порт гоняет родные веб-ассеты игры (1.4.2) на quixjs — JS-рантайме на C с JavaScriptCore, SDL2 и OpenGL ES 2, без Electron и браузера.",
+        "desc_md": null,
+        "inst": "Game assets are included in the archive (untouched assets/ of CrossCode 1.4.2-2). Extract the zip into the ports folder; CrossCode.sh must end up next to crosscode-qx/.",
+        "inst_md": null,
+        "genres": [
+            "action",
+            "rpg"
+        ],
+        "image": {},
+        "rtr": false,
+        "exp": false,
+        "runtime": [],
+        "store": [
+            {
+                "name": "Steam",
+                "url": "https://store.steampowered.com/app/368340"
+            },
+            {
+                "name": "GOG",
+                "url": "https://www.gog.com/game/crosscode"
+            }
+        ],
+        "free": false,
+        "reqs": [],
+        "arch": [
+            "aarch64"
+        ],
+        "min_glibc": "2.28"
+    }
+}

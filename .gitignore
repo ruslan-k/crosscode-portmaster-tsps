@@ -1,0 +1,19 @@
+# game data and runtime binaries are not part of this repo
+crosscode-qx/gamedata/
+crosscode-qx/quixjs.aarch64
+crosscode-qx/libs.aarch64/
+crosscode-qx/fonts/
+*.tar.gz
+*.zip
+*.obb
+
+# game/user state
+cc.save
+cc.save.backup
+cc.save.backup2
+log.txt
+quixjs.sock
+
+# local junk
+*.bak*
+*~
