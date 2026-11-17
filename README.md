@@ -2,7 +2,8 @@
 
 Port of **CrossCode 1.4.2-2** to the TrimUI Smart Pro (TSPS, 1280x720, Mali-G57)
 running the game's own web assets on **quixjs 0.2.1** — a JS runtime in C
-(JavaScriptCore + SDL2 + OpenGL ES 2). No Electron, no Chromium, no browser.
+(JavaScriptCore + SDL2 + OpenGL ES 2), https://github.com/lowlevel-1989/quixjs.
+No Electron, no Chromium, no browser.
 
 Status: playable — picture, sound, gamepad, saves. ~55 fps in light maps
 (~15 ms of JS per frame), ~20 fps in the heavy outdoor maps; the game draws a
@@ -82,6 +83,15 @@ Other knobs, in the launcher and the toml:
 * **Pad** — read through `navigator.getGamepads()` (quixjs implements it); the
   virtual pad shows up as "Xbox 360 Controller" through PortMaster's
   `gamecontrollerdb.txt`.
+
+## Credits
+
+* [quixjs](https://github.com/lowlevel-1989/quixjs) by lowlevel-1989 — the
+  JavaScriptCore + SDL2 + GLES2 runtime this port is built on, including the
+  nw.js layer, the SDL backend and the aarch64 release used here. Everything
+  under `crosscode-qx/{quixjs.aarch64,libs.aarch64,fonts}` comes from its
+  `0.2.1` release.
+* CrossCode and its assets — Radical Fish Games.
 
 ## Known issues
 
