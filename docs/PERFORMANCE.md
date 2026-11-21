@@ -93,8 +93,15 @@ QUIX_FAST_OPAQUE_BLIT=1 CROSSCODE_PROFILE=1  # fast path enabled
 `CROSSCODE_PROFILE=1` adds `--fps --profile` and writes sampling data.
 Measure median FPS, p95 frame time and JS/canvas frame time; check both
 screenshots are pixel-identical. A host-only randomized **30,000-case**
-equivalence smoke test of the two pixel loops passed; no TSPS hardware
-measurement or full CrossCode visual regression has been performed.
+equivalence smoke test of the two pixel loops passed.
+
+Device A/B (2026-11-21, TSPS, one built binary, scale 1, all four effects on,
+map `arid.forest-1`, 120 s windows) measured median 22.7 fps / js 41.7 ms with
+the flag at 0 and 16.6 fps / js 57.8 ms with it at 1. The two screenshots show
+different scenes (different spawn/camera), so this does NOT isolate the fast
+path; treat it as a warning, not a proven regression. The default is therefore
+0 and the flag stays opt-in until a fixed-spawn A/B can be run. No full visual
+regression has been performed.
 If the fast path is slower for translucent effects, leave the flag at `0`.
 
 The large remaining optimization would be an accelerated Canvas2D drawImage
