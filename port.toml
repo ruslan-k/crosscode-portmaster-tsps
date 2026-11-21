@@ -14,8 +14,11 @@ version   = "1.0.0"   # the port's version: bump it with every port change
 id        = "crosscode"
 game_dir  = "gamedata/assets"
 cache_dir = "cache/gamedata"
-width     = 1136
-height    = 640
+# CrossCode boots with IG_GAME_SCALE=1: its actual Canvas2D is 568x320.
+# Keep quixjs's initial/default canvas at the same size so it does not
+# allocate unnecessary 1136x640 off-screen surfaces before game resize.
+width     = 568
+height    = 320
 
 [scripts]
 libs = [
