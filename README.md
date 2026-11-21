@@ -14,7 +14,7 @@ Status: playable — picture, sound, gamepad, saves. ~55 fps in light maps
 | Path | Purpose |
 | --- | --- |
 | `CrossCode.sh` | PortMaster launcher (SpruceOS PortMaster path, ALSA env, gptokeyb2 target) |
-| `port.toml` | quixjs config: game dir, 568x320 canvas, fps cap, nw.js layer |
+| `port.toml` | quixjs config: game dir, 568x320 default canvas, fps cap, nw.js layer |
 | `ccx-boot.js` | The port shim: what `node-webkit.html` supplied that quixjs does not (see below) |
 | `port.json`, `gameinfo.xml` | PortMaster / EmulationStation metadata |
 | `install.sh` | Assembles the port: quixjs binary + shim + assets |
@@ -106,3 +106,11 @@ Other knobs, in the launcher and the toml:
 * Saves go to `crosscode-qx/gamedata/assets/cc.save` (+ `.backup`, `.backup2`);
   they are the game's own format, so a save from the Electron port on the same
   version loads here.
+
+## Experimental performance work
+
+A separate opt-in raster build and A/B controls are described in
+[docs/PERFORMANCE.md](docs/PERFORMANCE.md). The new default canvas size matches
+`IG_GAME_SCALE=1` at 568x320; the existing game effects remain enabled.
+The raster optimization requires rebuilding quixjs, and FPS improvements
+have **not** been verified on a TrimUI device.
