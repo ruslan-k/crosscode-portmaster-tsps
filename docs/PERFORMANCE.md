@@ -101,21 +101,25 @@ the flag at 0 and 16.6 fps / js 57.8 ms with it at 1. Those screenshots showed
 different spawn/camera/scenes, so that comparison is **rejected as invalid**;
 it is not evidence of a regression.
 
-Controlled re-test (2026-11-22, TSPS, `benchmarks/run-ab.sh`): pristine save
-restored before every arm, fixed preset 3 -> `autumn.entrance`, identical dialog
-dismissal and 90 s steady window, A/B/A on the SAME patched binary:
+Re-test (2026-11-22, TSPS, `benchmarks/run-ab.sh`): pristine save restored before
+every arm, fixed preset 3 -> `autumn.entrance`, identical dialog dismissal,
+90 s steady window, three OFF and three ON arms on the SAME patched binary;
+only `QUIX_FAST_OPAQUE_BLIT` differs:
 
-| arm | flag | median FPS | median js | p95 js |
-| --- | --- | --- | --- | --- |
-| A2 | 0 | 46.10 | 21.10 ms | 34.40 ms |
-| B  | 1 | 49.00 | 19.90 ms | 31.20 ms |
-| A3 | 0 | 46.65 | 20.90 ms | 31.20 ms |
+| arms | median FPS (each arm) | mean FPS | mean js |
+| --- | --- | --- | --- |
+| flag 0: A2, A3, A4 | 46.10, 46.65, 46.45 | 46.40 (sd 0.28) | ~21.0 ms |
+| flag 1: B, B2, B3 | 49.00, 50.50, 49.80 | 49.77 (sd 0.75) | ~19.5 ms |
 
-Flag effect vs mean of off arms: +2.62 FPS / -1.10 ms js; off-arm drift
-+0.55 FPS / -0.20 ms. This is a headless `-b dummy` run (present ~0.3 ms vs
-~2.3 ms on the real SDL path) on a moderately heavy map: a modest repeatable
-win, NOT the 30 FPS target. The flag stays opt-in (default 0) until a real
-display A/B on `arid.forest-1` confirms it.
+Mean effect: **+3.37 FPS / -1.52 ms js**; the OFF and ON ranges do not overlap.
+`QUIX_FAST_OPAQUE_BLIT` is read only by the patched raster branch, so the same
+binary with only that variable changed isolates the branch's effect even without
+per-block counters. Caveats from independent review: this is a headless
+`-b dummy` run (present ~0.3 ms vs ~2.3 ms on the real SDL path), the map is
+moderately heavy rather than `arid.forest-1`, animation frames are not identical,
+p95 js did not improve consistently, and the share of eligible opaque blits was
+not counted. The flag therefore stays opt-in (default 0) until a real-display
+A/B on the heaviest map confirms the gain. **The 30 FPS target is not reached.**
 
 Upstream quixjs 0.5.1, tested in the same harness with `port.toml` and assets
 unchanged, gave 48.85 FPS / 19.90 ms js against baseline arms 47.80 and 46.35
