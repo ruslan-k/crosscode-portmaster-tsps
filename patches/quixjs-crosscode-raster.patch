@@ -1,20 +1,12 @@
 diff --git a/runtime/gfx/raster.c b/runtime/gfx/raster.c
+index 49d327c..3129fe2 100644
 --- a/runtime/gfx/raster.c
 +++ b/runtime/gfx/raster.c
-@@ -745,15 +745,42 @@
-       int ty = oy + j;
+@@ -746,7 +746,43 @@ void raster_draw_image(Surface *dst, const Surface *src,
        const uint8_t *s = src->px + ((size_t)(isy + j) * src->w + isx + i0) * 4;
        uint8_t *d = dst->px + ((size_t)ty * dst->w + ox + i0) * 4;
--      if (plain) {
+       if (plain) {
 -        for (int i = i0; i < i1; i++, s += 4, d += 4) {
--          int a = s[3];
--          if (a == 0) continue;
--          if (a == 255 || d[3] == 0) memcpy(d, s, 4);
--          else blend_pixel(d, s[0], s[1], s[2], a, OP_SOURCE_OVER);
--        }
--        continue;
--      }
-+      if (plain) {
 +        // Optional exact-pixel fast path for long opaque/transparent runs.
 +        // Mixed-alpha blocks use the unmodified scalar blending operation.
 +        // Toggle per process with QUIX_FAST_OPAQUE_BLIT=1 (0 = baseline).
@@ -23,8 +15,17 @@ diff --git a/runtime/gfx/raster.c b/runtime/gfx/raster.c
 +          const char *env = getenv("QUIX_FAST_OPAQUE_BLIT");
 +          packed = env && env[0] == '1' && env[1] == '\0';
 +        }
++        // A self-blit with overlapping storage changes semantics under memcpy;
++        // keep the original per-pixel order for those calls.
++        int use_packed = packed;
++        if (use_packed) {
++          uintptr_t sp = (uintptr_t)src->px, dp = (uintptr_t)dst->px;
++          size_t sb = (size_t)src->w * (size_t)src->h * 4;
++          size_t db = (size_t)dst->w * (size_t)dst->h * 4;
++          if (sp + sb > dp && dp + db > sp) use_packed = 0;
++        }
 +        int i = i0;
-+        if (packed) {
++        if (use_packed) {
 +          for (; i + 4 <= i1; i += 4, s += 16, d += 16) {
 +            int a0 = s[3], a1 = s[7], a2 = s[11], a3 = s[15];
 +            if (a0 == 255 && a1 == 255 && a2 == 255 && a3 == 255) {
@@ -43,13 +44,6 @@ diff --git a/runtime/gfx/raster.c b/runtime/gfx/raster.c
 +          }
 +        }
 +        for (; i < i1; i++, s += 4, d += 4) {
-+          int a = s[3];
-+          if (a == 0) continue;
-+          if (a == 255 || d[3] == 0) memcpy(d, s, 4);
-+          else blend_pixel(d, s[0], s[1], s[2], a, OP_SOURCE_OVER);
-+        }
-+        continue;
-+      }
-       for (int i = i0; i < i1; i++, s += 4, d += 4) {
-         if (dp->clip && !mask_contains(dp->clip, ox + i, ty)) continue;
-         if (s[3] == 0) continue;
+           int a = s[3];
+           if (a == 0) continue;
+           if (a == 255 || d[3] == 0) memcpy(d, s, 4);

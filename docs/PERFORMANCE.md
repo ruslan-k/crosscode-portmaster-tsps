@@ -151,18 +151,31 @@ not `arid.forest-1` and animation frames are not pixel-identical across arms.
 unverified** — the measured gain is 3-5 FPS, not a 30-FPS fix.
 
 Block attribution (temporary counters, preset 5, flag 1): of 610165 `drawImage`
-calls, 522960 (85.7%) used the translation-only plain path, 12707 the axis-scaled
-path and 210 the general path. Within the packed loop, 281215911 blocks were
-fully opaque and 592047252 fully transparent, against 13623627 mixed pixels and
-2517599 scalar tail pixels — about 97.5% of blocks are uniform, so the branch is
-exercised heavily. With flag 0 the same scene sent 3880384100 pixels through the
-scalar loop. This answers the review's attribution objection.
+calls, 522960 (85.7%) took the translation-only plain path, 74288 took that same
+path with non-plain blending (globalAlpha/clip/composite), 12707 the axis-scaled
+path and 210 the general path — every entry is accounted for. Inside the packed
+loop, 281215911 blocks were fully opaque and 592047252 fully transparent, versus
+13623627 mixed *pixels* (~3.4M mixed blocks) and 2517599 scalar tail pixels:
+about 99.6% of 4-pixel blocks are uniform, so the branch is heavily exercised.
+With flag 0 the same scene sent 3880384100 pixels through the scalar loop
+(~1.5M plain-path pixels per rendered frame across all surfaces; this is
+rasterizer work, not physical display overdraw). This answers the review's
+attribution objection.
 
-A proposed micro-variant using a single 32-bit alpha load was rejected: source
-pixels store alpha at byte offsets 3, 7, 11, 15 (stride 4), so one contiguous
-32-bit load reads the wrong bytes. An initial "byte-identical binary" observation
-was a build artifact (`cp -p` preserved mtime, so `make` only relinked and never
-recompiled `raster.c`). No further source change was made.
+Independent review also found a correctness gap in the original patch: an opaque
+`memcpy(d, s, 16)` is undefined behaviour when source and destination storage
+overlap, while the baseline per-pixel loop has defined read-before-write order.
+The patch now disables packed processing for overlapping surfaces and keeps the
+original scalar loop for those calls. Headless A/B/A for the guard (flag 1,
+preset 5): 43.05 FPS with guard vs 41.90/42.05 without, i.e. no regression.
+
+A 16-pixel NEON grouping was also tested (real build, flag 1, preset 5): 44.80
+FPS against 42.80/41.80 control arms: +2.0 FPS, js -1.35 ms at 1.0 FPS control
+drift. The js delta clears the review's 0.5 ms decision threshold, but the FPS
+signal is only ~2x drift and no real-display A/B/A was run, so it was **not**
+adopted: it adds a 15-line hot-path branch and the same shared-store aliasing
+risk. The smaller 8-pixel scalar grouping recommended by the same review remains
+untested.
 
 Upstream quixjs 0.5.1, tested in the same harness with `port.toml` and assets
 unchanged, gave 48.85 FPS / 19.90 ms js against baseline arms 47.80 and 46.35
