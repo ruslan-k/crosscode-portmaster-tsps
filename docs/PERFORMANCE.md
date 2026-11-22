@@ -129,15 +129,27 @@ preset and dialog sequence, principal-flow handoff not a stopped-UI run,
 Effect **+2.95 FPS / -1.15 ms js** with 0.2 FPS / 0.3 ms off-arm drift. KMS
 screenshots of all three arms show the same autumn scene with no missing layers
 or artifacts; their pixel differences are animation/camera phase (two flag-0
-arms also differ by 14% of pixels). On this evidence the launcher sets the flag
-to `1` by default for patched builds; `QUIX_FAST_OPAQUE_BLIT=0` still selects the
-original path.
+arms also differ by 14% of pixels).
 
-Remaining caveats from independent review: the scene is moderately heavy rather
-than `arid.forest-1`, animation frames are not pixel-identical, p95 improves in
-the SDL run but not consistently in the dummy runs, and the share of eligible
-opaque blits was not counted. **30 FPS at 568x320 with all effects on the
-heaviest maps is still unverified** — the measured gain is ~3 FPS, not a
+Heaviest available preset re-test on the real display (preset 5 ->
+`bergen-trail.path-8`, snow/weather, same three-arm protocol):
+
+| arm | median FPS | p95 FPS | median js | median present |
+| --- | --- | --- | --- | --- |
+| flag 0 | 40.70 | 41.80 | 22.10 ms | 2.20 ms |
+| flag 1 | 45.70 | 46.80 | 19.50 ms | 2.20 ms |
+| flag 0 | 40.95 | 42.10 | 22.00 ms | 2.20 ms |
+
+Effect **+4.88 FPS / -2.55 ms js** with 0.25 FPS off-arm drift; KMS frames show
+the same snowy scene with no missing layers. The gain is larger on the heavier
+map, so the launcher sets the flag to `1` by default for patched builds;
+`QUIX_FAST_OPAQUE_BLIT=0` still selects the original path.
+
+Remaining caveats from independent review: even the heaviest available preset is
+not `arid.forest-1`, animation frames are not pixel-identical across arms, and
+the share of eligible opaque blits was not counted (the instrumented rebuild was
+blocked by a missing clang toolchain). **30 FPS at 568x320 with all effects on the
+very heaviest maps is still unverified** — the measured gain is 3-5 FPS, not a
 30-FPS fix.
 
 Upstream quixjs 0.5.1, tested in the same harness with `port.toml` and assets
