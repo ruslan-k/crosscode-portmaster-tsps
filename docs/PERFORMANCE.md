@@ -146,11 +146,21 @@ map, so the launcher sets the flag to `1` by default for patched builds;
 `QUIX_FAST_OPAQUE_BLIT=0` still selects the original path.
 
 Remaining caveats from independent review: even the heaviest available preset is
-not `arid.forest-1`, animation frames are not pixel-identical across arms, and
-the share of eligible opaque blits was not counted (the instrumented rebuild was
-blocked by a missing clang toolchain). **30 FPS at 568x320 with all effects on the
-very heaviest maps is still unverified** — the measured gain is 3-5 FPS, not a
-30-FPS fix.
+not `arid.forest-1` and animation frames are not pixel-identical across arms.
+**30 FPS at 568x320 with all effects on the very heaviest maps is still
+unverified** — the measured gain is 3-5 FPS, not a 30-FPS fix.
+
+Block attribution (temporary counters, preset 5, flag 1): of 610165 `drawImage`
+calls, 522960 (85.7%) used the translation-only plain path, 12707 the axis-scaled
+path and 210 the general path. Within the packed loop, 281215911 blocks were
+fully opaque and 592047252 fully transparent, against 13623627 mixed pixels and
+2517599 scalar tail pixels — about 97.5% of blocks are uniform, so the branch is
+exercised heavily. With flag 0 the same scene sent 3880384100 pixels through the
+scalar loop. This answers the review's attribution objection.
+
+A candidate micro-optimization — one unaligned 32-bit alpha load instead of four
+byte loads — compiled to a **byte-identical** aarch64 binary with clang 17; the
+compiler already emits that load. No change was made.
 
 Upstream quixjs 0.5.1, tested in the same harness with `port.toml` and assets
 unchanged, gave 48.85 FPS / 19.90 ms js against baseline arms 47.80 and 46.35
