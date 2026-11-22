@@ -1,0 +1,46 @@
+{
+  "verified_at": "2026-11-23T01:49:58+04:00",
+  "tested_shipping_source_head": "beb9a899a1b1779c2b9d931d7121b3809bd9c5c7",
+  "runtime_sha256": "ee3bed2c824d8f044d7982b81c24e221f1e133e6be8c966e152b7c2a6ab5c30d",
+  "installed_file_sha256": {
+    "CrossCode.sh": "cbe579b914e39cafb9bc5a1084f69dc4a7e68f8f7567013975d0e104d4d578ad",
+    "port.toml": "45524dd0e8e2b10cd5d29551517afd5a68b866128a470c9f0846fc77c5d7b21c",
+    "ccx-boot.js": "522c43cbe2a69a4971fdb839871e39159e7676dbaa5e57c388b4fc68a7a37a93",
+    "quixjs.aarch64": "ee3bed2c824d8f044d7982b81c24e221f1e133e6be8c966e152b7c2a6ab5c30d"
+  },
+  "launch_argv": [
+    "./quixjs.aarch64",
+    "-c",
+    "port.toml",
+    "--fullscreen"
+  ],
+  "normal_controller_enabled": true,
+  "fast_opaque_blit": "1",
+  "debug_socket": false,
+  "fps_overlay": false,
+  "sampling_profiler": false,
+  "diagnostic_csv_or_shadow_build": false,
+  "startup_render_verified": "native game About Difficulty and Assist Mode dialog visible; no FPS/debug overlay",
+  "user_handoff": "physical BTN_A input observed; production game left running, no signal or input injected",
+  "deleted_files": 423,
+  "logical_bytes_deleted": 570059570,
+  "observed_free_bytes_before": 3647635456,
+  "observed_free_bytes_after": 4227432448,
+  "observed_bytes_freed": 579796992,
+  "removed_experiments": [
+    "perf-ab-20261121",
+    "perf-20261122",
+    "perf-next-20261122"
+  ],
+  "save_policy": "All cc.save* retained in place, including game-managed backups. User gameplay caused normal save rotation; no stale restoration or save-file deletion.",
+  "remaining_entries": [
+    "VERSION",
+    "fonts",
+    "gamedata",
+    "libs.aarch64",
+    "log.txt",
+    "port.toml",
+    "quixjs.aarch64"
+  ],
+  "normal_startup_log_bytes": 1287
+}

@@ -114,6 +114,44 @@ Use Spruce's standard PORTS launch flow for SDL and do not run it alongside Main
 The baseline A contains the earlier packed-blit/overlap guard, not an unrelated
 stock-runtime upgrade. Licensed game assets and saves are not included.
 
+## Authorized production rollout
+
+Owner approval received for merge and activation. On 2026-11-23T01:49:58+04:00, the tested
+clean runtime was installed as the normal `quixjs.aarch64`, together with the
+canonical root `CrossCode.sh`, native-size `port.toml`, and effective
+`gamedata/assets/ccx-boot.js`. All four installed hashes were independently read
+back; runtime SHA-256 remains
+`ee3bed2c824d8f044d7982b81c24e221f1e133e6be8c966e152b7c2a6ab5c30d`.
+
+The production launcher now always invokes only
+`./quixjs.aarch64 -c port.toml --fullscreen`; the old profiling environment switch
+was removed. The optional settings file was absent, which defaults show_fps and
+profile to false. The actual process had no FPS, profiler or debug arguments,
+no CSV/shadow verification environment, and no benchmark controller-ignore hint.
+Opaque blits are enabled (`QUIX_FAST_OPAQUE_BLIT=1`). The normal game startup
+dialog rendered through KMSDRM/Mali-G57 without a debug overlay.
+
+Physical BTN_A input was observed during verification. The game was therefore
+left with the user, not terminated or remotely driven. Its input helper is a
+normal gameplay process, not a leaked test. Save files were not frozen or
+restored: normal user-driven save rotation was preserved, including all three
+`cc.save*` files and the game's own backups.
+
+Removed **423 files** from the three experiment
+folders, diagnostic captures, unused console/bytecode helpers, duplicate stale
+launcher/boot files and stale ccperf socket/PID. Available card space increased
+by **552.94 MiB** as observed across
+the rollout/cleanup. No device-side experiment snapshots/backups remain. The
+single current `log.txt` is the normal 1287-byte
+startup/error log, with no periodic FPS/profile output; normal future launches
+may recreate/update it. Game assets, libraries, fonts and caches were retained.
+
+The detailed [rollout receipt](../benchmarks/results/20261123-native-compositing/production-rollout.json)
+records the deployment hashes and scope. Earlier “candidate staged separately”
+notes below describe the isolated benchmark phase, before this authorization.
+The all-map/long-combat 30 FPS guarantee remains unverified; this rollout does
+not expand the performance claims above.
+
 ## Earlier experiments
 
 
