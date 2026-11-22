@@ -110,16 +110,19 @@ Other knobs, in the launcher and the toml:
 ## Experimental performance work
 
 The packed-blit and compositing patches require a rebuilt runtime;
-`install.sh` still downloads the stock upstream binary. Build and test with:
+Without `QUIXJS_BIN`, `install.sh` selects the stock upstream runtime. Build
+and test a patched runtime with:
 
 ```sh
 bash build/build_crosscode_quixjs.sh
 bash tests/run-composite.sh build/quixjs-0.2.2
 ```
 
-The result is `build/quixjs-crosscode.aarch64`. To use it in an assembled port,
-back up its original `quixjs.aarch64`, then copy the rebuilt executable there
-under that name. Keep `libs.aarch64/` and the game assets unchanged.
+The result is `build/quixjs-crosscode.aarch64`. For a fresh port, use the existing
+`QUIXJS_BIN=/absolute/path/to/quixjs-crosscode.aarch64 ./install.sh ...` override.
+For a binary-only update of an assembled port, back up its original
+`quixjs.aarch64`, then copy the rebuilt executable there under that name; this
+leaves its libraries, fonts, config and game assets unchanged.
 `QUIX_FAST_OPAQUE_BLIT=0` disables only the packed blit, not the exact
 compositing specializations; retain the original executable for a full rollback.
 Real-device results and benchmark scope are in
