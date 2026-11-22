@@ -180,6 +180,17 @@ js -0.15 ms at 0.05 FPS drift — below the 0.5 ms threshold, so the falsifier
 fired and packed-loop micro-optimization stops here. Neither experiment changed
 the shipped patch.
 
+GPU canvas backend (authorized experiment): quixjs 0.5.1 hooks provide
+`gpu-canvas`, but it accelerates only fillRect/clearRect/fill/stroke with colors
+and gradients; `drawImage` falls back to the software path. CrossCode calls
+`getContext("2d")` on its own canvases and its hot path is `drawImage` (46.2% of
+profiled time). The hook was installed on the real hot function
+`ig.Image.prototype.draw` (`--test` confirmed "Hooks: 1") and measured headless
+on preset 5: 37.30 FPS / 26.30 ms js vs 37.80 and 36.40 FPS / 25.95 and 27.00 ms
+js in control arms — inside the 1.4 FPS / 1.05 ms control drift. No GPU win.
+Implementing textured-quad drawImage in quixjs `gfx/gpu2d.c` would be a new
+renderer with blending/alpha/smoothing parity risks, outside this patch.
+
 Upstream quixjs 0.5.1, tested in the same harness with `port.toml` and assets
 unchanged, gave 48.85 FPS / 19.90 ms js against baseline arms 47.80 and 46.35
 FPS / 20.45 and 21.05 ms js. Its ~1.8 FPS gain is within the ~3% A->A drift,
