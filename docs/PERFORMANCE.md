@@ -158,9 +158,11 @@ fully opaque and 592047252 fully transparent, against 13623627 mixed pixels and
 exercised heavily. With flag 0 the same scene sent 3880384100 pixels through the
 scalar loop. This answers the review's attribution objection.
 
-A candidate micro-optimization — one unaligned 32-bit alpha load instead of four
-byte loads — compiled to a **byte-identical** aarch64 binary with clang 17; the
-compiler already emits that load. No change was made.
+A proposed micro-variant using a single 32-bit alpha load was rejected: source
+pixels store alpha at byte offsets 3, 7, 11, 15 (stride 4), so one contiguous
+32-bit load reads the wrong bytes. An initial "byte-identical binary" observation
+was a build artifact (`cp -p` preserved mtime, so `make` only relinked and never
+recompiled `raster.c`). No further source change was made.
 
 Upstream quixjs 0.5.1, tested in the same harness with `port.toml` and assets
 unchanged, gave 48.85 FPS / 19.90 ms js against baseline arms 47.80 and 46.35
