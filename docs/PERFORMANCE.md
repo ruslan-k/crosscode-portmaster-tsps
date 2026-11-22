@@ -174,8 +174,11 @@ FPS against 42.80/41.80 control arms: +2.0 FPS, js -1.35 ms at 1.0 FPS control
 drift. The js delta clears the review's 0.5 ms decision threshold, but the FPS
 signal is only ~2x drift and no real-display A/B/A was run, so it was **not**
 adopted: it adds a 15-line hot-path branch and the same shared-store aliasing
-risk. The smaller 8-pixel scalar grouping recommended by the same review remains
-untested.
+risk. Following the review's ordering, the smaller 8-pixel scalar grouping with
+the original 4-pixel fallback was tested last: 42.30 FPS vs 42.05/42.00 controls,
+js -0.15 ms at 0.05 FPS drift — below the 0.5 ms threshold, so the falsifier
+fired and packed-loop micro-optimization stops here. Neither experiment changed
+the shipped patch.
 
 Upstream quixjs 0.5.1, tested in the same harness with `port.toml` and assets
 unchanged, gave 48.85 FPS / 19.90 ms js against baseline arms 47.80 and 46.35
