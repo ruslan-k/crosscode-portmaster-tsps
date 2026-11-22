@@ -46,6 +46,9 @@ else
 fi
 
 pm_platform_helper "$GAMEDIR/quixjs.aarch64"
+# The patch in patches/quixjs-crosscode-raster.patch honours this env var.
+# Existing upstream binaries ignore it. Set 0 to compare the old pixel path.
+export QUIX_FAST_OPAQUE_BLIT=${QUIX_FAST_OPAQUE_BLIT:-1}
 $QUIXJS -c port.toml --fullscreen
 
 pm_finish

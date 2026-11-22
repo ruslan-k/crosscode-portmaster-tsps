@@ -1,0 +1,15 @@
+{
+  "production_files_sha256_ok": 8,
+  "production_binary_sha256": "e9a64242042c5f51a09729bd1edaa1f36808c13f239de479cd108dbef1d414a6",
+  "test_processes": [],
+  "mainui": [
+    [
+      "15139",
+      "/mnt/SDCARD/spruce/flip/bin/MainUI /mnt/SDCARD/App/PyUI/main-ui/mainui.py -device TRIMUI_SMART_PRO_S -logDir /mnt/SDCARD/Saves/spruce -pyUiConfig /mnt/SDCARD/App/PyUI/py-ui-config.json -cfwConfig /mnt/SDCARD/Saves/spruce/spruce-config.json "
+    ]
+  ],
+  "pending_launch": false,
+  "temporary_launcher_removed": true,
+  "sandbox_removed": true,
+  "release_sha256": "ee3bed2c824d8f044d7982b81c24e221f1e133e6be8c966e152b7c2a6ab5c30d"
+}

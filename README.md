@@ -1,20 +1,21 @@
-# CrossCode — PortMaster port for TrimUI Smart Pro (SpruceOS)
+# CrossCode — PortMaster port for TrimUI Smart Pro S (SpruceOS)
 
-Port of **CrossCode 1.4.2-2** to the TrimUI Smart Pro (TSPS, 1280x720, Mali-G57)
+Port of **CrossCode 1.4.2-2** to the TrimUI Smart Pro S (TSPS, 1280x720, Mali-G57)
 running the game's own web assets on **quixjs 0.2.2** — a JS runtime in C
 (JavaScriptCore + SDL2 + OpenGL ES 2), https://github.com/lowlevel-1989/quixjs.
 No Electron, no Chromium, no browser.
 
-Status: playable — picture, sound, gamepad, saves. ~55 fps in light maps
-(~15 ms of JS per frame), ~20 fps in the heavy outdoor maps; the game draws a
-568x320 canvas scaled to 1280x720.
+Status: playable — picture, sound, gamepad, saves. The stock runtime reaches
+~55 fps in light maps and ~20 fps in heavy outdoor maps. The game draws a
+568x320 canvas scaled to 1280x720. Patched-runtime measurements and their
+limitations are in [docs/PERFORMANCE.md](docs/PERFORMANCE.md).
 
 ## What is in this repo
 
 | Path | Purpose |
 | --- | --- |
 | `CrossCode.sh` | PortMaster launcher (SpruceOS PortMaster path, ALSA env, gptokeyb2 target) |
-| `port.toml` | quixjs config: game dir, 568x320 canvas, fps cap, nw.js layer |
+| `port.toml` | quixjs config: game dir, 568x320 default canvas, fps cap, nw.js layer |
 | `ccx-boot.js` | The port shim: what `node-webkit.html` supplied that quixjs does not (see below) |
 | `port.json`, `gameinfo.xml` | PortMaster / EmulationStation metadata |
 | `install.sh` | Assembles the port: quixjs binary + shim + assets |
@@ -97,12 +98,32 @@ Other knobs, in the launcher and the toml:
 
 ## Known issues
 
-* Heavy outdoor maps stay around 20 fps: the cost is the game's own JS, not the
-  renderer (`present` is ~2.2 ms). Turning off lighting, weather, env-particles
-  or speedlines in *Options > Video* is the cheap lever; the effects stay on by
-  default.
+* Heavy outdoor maps can stay around 20 fps with the stock runtime. The `js`
+  timer includes native software Canvas2D rendering; a ~2.2 ms `present` does
+  not establish a JavaScript-only bottleneck. All effects remain enabled.
 * Gamepad rumble and the game's own "fullscreen" option are inert (the runtime
   is already fullscreen).
 * Saves go to `crosscode-qx/gamedata/assets/cc.save` (+ `.backup`, `.backup2`);
   they are the game's own format, so a save from the Electron port on the same
   version loads here.
+
+## Experimental performance work
+
+The packed-blit and compositing patches require a rebuilt runtime;
+Without `QUIXJS_BIN`, `install.sh` selects the stock upstream runtime. Build
+and test a patched runtime with:
+
+```sh
+bash build/build_crosscode_quixjs.sh
+bash tests/run-composite.sh build/quixjs-0.2.2
+```
+
+The result is `build/quixjs-crosscode.aarch64`. For a fresh port, use the existing
+`QUIXJS_BIN=/absolute/path/to/quixjs-crosscode.aarch64 ./install.sh ...` override.
+For a binary-only update of an assembled port, back up its original
+`quixjs.aarch64`, then copy the rebuilt executable there under that name; this
+leaves its libraries, fonts, config and game assets unchanged.
+`QUIX_FAST_OPAQUE_BLIT=0` disables only the packed blit, not the exact
+compositing specializations; retain the original executable for a full rollback.
+Real-device results and benchmark scope are in
+[docs/PERFORMANCE.md](docs/PERFORMANCE.md).

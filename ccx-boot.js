@@ -25,13 +25,18 @@ var IG_GAME_DEBUG = false, IG_GAME_BETA = false;
 // the loader loads every json with $.ajax(dataType:"json"); XHR is the
 // transport quixjs already implements
 window.jQuery = window.$ = (function () {
+  // The HTML shell is intentionally inert. Reuse its one dummy element:
+  // repeated $() calls in the game no longer allocate garbage each frame.
+  var dummy_el;
   function noop_el() {
+    if (dummy_el) return dummy_el;
     var o = { css: function () { return o; }, attr: function () { return o; },
       addClass: function () { return o; }, removeClass: function () { return o; },
       show: function () { return o; }, hide: function () { return o; },
       append: function () { return o; }, html: function () { return o; },
       text: function () { return o; }, on: function () { return o; },
       width: function () { return 0; }, height: function () { return 0; } };
+    dummy_el = o;
     return o;
   }
   var jq = function () { return noop_el(); };

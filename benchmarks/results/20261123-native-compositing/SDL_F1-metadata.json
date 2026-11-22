@@ -1,0 +1,4574 @@
+{
+  "completed": true,
+  "args": {
+    "label": "SDL_F1",
+    "binary": "/mnt/SDCARD/Roms/PORTS/crosscode-qx/perf-next-20261122/quix-fast",
+    "backend": "sdl",
+    "map": "arid.forest-1",
+    "marker": "",
+    "position": null,
+    "verify": false,
+    "seconds": 120,
+    "warmup": 30
+  },
+  "binary_sha256": "1d2a691e8d9f121f86065fd0b0ad22b5ba462690a1e51ad3e56ca5c6e6151b52",
+  "env": {
+    "QUIX_FAST_OPAQUE_BLIT": "1",
+    "CC_PERF_CSV": "/mnt/SDCARD/Roms/PORTS/crosscode-qx/perf-next-20261122/runs/SDL_F1/frames.csv"
+  },
+  "pid": 11128,
+  "state_start": {
+    "map": "arid.forest-1",
+    "teleporting": false,
+    "player": {
+      "x": 856,
+      "y": 936,
+      "z": 0
+    },
+    "camera": {
+      "x": 580,
+      "y": 772
+    },
+    "hp": 641,
+    "input": {
+      "confirm": false
+    },
+    "pad": null,
+    "gameDelegate": true,
+    "loading": false,
+    "scale": 1,
+    "width": 568,
+    "height": 320,
+    "contextWidth": 568,
+    "contextHeight": 320,
+    "canvas": [
+      568,
+      320
+    ],
+    "options": {
+      "language": "0",
+      "pause-unfocused": true,
+      "volume-music": 0.8,
+      "volume-sound": 1,
+      "skip-tutorials": false,
+      "skip-confirm": true,
+      "text-speed": 0.015,
+      "message-padding": 0,
+      "game-sense": false,
+      "circuit-text-size": 2,
+      "circuit-display-time": 0,
+      "equip-level-display": true,
+      "level-letter-display": true,
+      "buff-help": true,
+      "update-trophy-style": 1,
+      "update-quest-style": 0,
+      "update-landmark-style": 0,
+      "update-lore-style": 1,
+      "update-drop-style": 0,
+      "min-sidebar": false,
+      "item-hud-size": 0,
+      "show-items": true,
+      "show-money": true,
+      "min-quest": false,
+      "quest-show-current": false,
+      "xeno-pointer": true,
+      "hud-display": true,
+      "close-combat-input": true,
+      "close-circle": true,
+      "sp-bar": true,
+      "element-overload": true,
+      "low-health-warning": true,
+      "combat-art-name": false,
+      "damage-numbers": true,
+      "damage-numbers-crit": false,
+      "s-rank-effects": true,
+      "enemy-status-bars": true,
+      "hp-bars": 1,
+      "party-combat-arts": 0,
+      "quick-menu-access": 0,
+      "quick-location": 0,
+      "quick-element": true,
+      "quick-cursor": true,
+      "display-type": 0,
+      "fullscreen": true,
+      "pixel-size": 0,
+      "rumble-strength": 3,
+      "speedlines": true,
+      "env-particles": true,
+      "weather": true,
+      "lighting": true,
+      "gamepad-attack": 0,
+      "gamepad-dash": 0,
+      "gamepad-icons": 0,
+      "arena-cam-focus": true,
+      "arena-confirm": true,
+      "element-wheel": false,
+      "keys-confirm": {
+        "key1": 13
+      },
+      "keys-back": {
+        "key1": 8
+      },
+      "keys-menu": {
+        "key1": 9
+      },
+      "keys-pause": {
+        "key1": 27
+      },
+      "keys-help": {
+        "key1": 72
+      },
+      "keys-help2": {
+        "key1": 66
+      },
+      "keys-help3": {
+        "key1": 78
+      },
+      "keys-skip-cutscene": {
+        "key1": 71
+      },
+      "keys-help4": {
+        "key1": 73
+      },
+      "keys-circle-left": {
+        "key1": 81
+      },
+      "keys-circle-right": {
+        "key1": 69
+      },
+      "keys-up": {
+        "key1": 87,
+        "key2": 38
+      },
+      "keys-right": {
+        "key1": 68,
+        "key2": 39
+      },
+      "keys-down": {
+        "key1": 83,
+        "key2": 40
+      },
+      "keys-left": {
+        "key1": 65,
+        "key2": 37
+      },
+      "keys-melee": {
+        "key1": 86
+      },
+      "keys-guard": {
+        "key1": 67
+      },
+      "keys-quick": {
+        "key1": 16
+      },
+      "keys-special": {
+        "key1": 32
+      },
+      "keys-dash2": {
+        "key1": 18
+      },
+      "keys-cold": {
+        "key1": 49
+      },
+      "keys-shock": {
+        "key1": 50
+      },
+      "keys-heat": {
+        "key1": 51
+      },
+      "keys-wave": {
+        "key1": 52
+      },
+      "keys-neutral": {
+        "key1": 192,
+        "key2": 53
+      },
+      "assist-damage": 1,
+      "assist-attack-frequency": 1,
+      "assist-puzzle-speed": 1
+    }
+  },
+  "census_start": {
+    "cpu_khz": "1992000\n",
+    "governor": "performance\n",
+    "meminfo": "MemTotal:         986064 kB\nMemFree:           18236 kB\nMemAvailable:     254932 kB\nBuffers:            3292 kB\nCached:           195164 kB\nSwapCached:         3032 kB\nActive:           132704 kB\nInactive:         604924 kB\nActive(anon):       9356 kB\nInactive(anon):   532944 kB\nActive(file):     123348 kB\nInactive(file):    71980 kB\nUnevictable:           0 kB\nMlocked:               0 kB\nSwapTotal:       2065884 kB\nSwapFree:        2038236 kB\nDirty:              1492 kB\nWriteback:             0 kB\nAnonPages:        536396 kB\nMapped:            50472 kB\nShmem:              3108 kB\nKReclaimable:      57212 kB\nSlab:             153756 kB\nSReclaimable:      57212 kB\nSUnreclaim:        96544 kB\nKernelStack:        3360 kB\nPageTables:         3168 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:     2558916 kB\nCommitted_AS:     621116 kB\nVmallocTotal:   259653632 kB\nVmallocUsed:        9984 kB\nVmallocChunk:          0 kB\nPercpu:             1152 kB\nCmaTotal:         131072 kB\nCmaFree:             640 kB\n",
+    "vmstat": "nr_free_pages 4559\nnr_zone_inactive_anon 133236\nnr_zone_active_anon 2339\nnr_zone_inactive_file 17995\nnr_zone_active_file 30837\nnr_zone_unevictable 0\nnr_zone_write_pending 371\nnr_mlock 0\nnr_bounce 0\nnr_free_cma 160\nnr_inactive_anon 133236\nnr_active_anon 2339\nnr_inactive_file 17995\nnr_active_file 30837\nnr_unevictable 0\nnr_slab_reclaimable 14303\nnr_slab_unreclaimable 24136\nnr_isolated_anon 0\nnr_isolated_file 0\nworkingset_nodes 3415\nworkingset_refault_anon 16955\nworkingset_refault_file 175928\nworkingset_activate_anon 6551\nworkingset_activate_file 89187\nworkingset_restore_anon 61\nworkingset_restore_file 60740\nworkingset_nodereclaim 0\nnr_anon_pages 134099\nnr_mapped 12618\nnr_file_pages 50372\nnr_dirty 373\nnr_writeback 0\nnr_writeback_temp 0\nnr_shmem 777\nnr_shmem_hugepages 0\nnr_shmem_pmdmapped 0\nnr_file_hugepages 0\nnr_file_pmdmapped 0\nnr_anon_transparent_hugepages 0\nnr_vmscan_write 68045\nnr_vmscan_immediate_reclaim 76\nnr_dirtied 103069\nnr_written 169801\nnr_kernel_misc_reclaimable 0\nnr_foll_pin_acquired 0\nnr_foll_pin_released 0\nnr_kernel_stack 3360\nnr_page_table_pages 792\nnr_swapcached 758\nnr_dirty_threshold 10378\nnr_dirty_background_threshold 5183\npgpgin 1229580\npgpgout 668902\npswpin 16955\npswpout 68045\npgalloc_dma 24830969\npgalloc_dma32 0\npgalloc_normal 0\npgalloc_movable 0\nallocstall_dma 0\nallocstall_dma32 0\nallocstall_normal 153\nallocstall_movable 347\npgskip_dma 0\npgskip_dma32 0\npgskip_normal 0\npgskip_movable 0\npgfree 25442055\npgactivate 284813\npgdeactivate 365888\npglazyfree 36\npgfault 27968643\npgmajfault 15786\npglazyfreed 0\npgrefill 450170\npgreuse 1332598\npgsteal_kswapd 382582\npgsteal_direct 22885\npgdemote_kswapd 0\npgdemote_direct 0\npgscan_kswapd 817731\npgscan_direct 68823\npgscan_direct_throttle 3\npgscan_anon 514675\npgscan_file 371879\npgsteal_anon 66688\npgsteal_file 338779\npginodesteal 0\nslabs_scanned 84224\nkswapd_inodesteal 21443\nkswapd_low_wmark_hit_quickly 165\nkswapd_high_wmark_hit_quickly 14\npageoutrun 513\npgrotated 68040\ndrop_pagecache 0\ndrop_slab 0\noom_kill 0\npgmigrate_success 571316\npgmigrate_fail 2386\nthp_migration_success 0\nthp_migration_fail 0\nthp_migration_split 0\ncompact_migrate_scanned 4600032\ncompact_free_scanned 13790336\ncompact_isolated 1211300\ncompact_stall 0\ncompact_fail 0\ncompact_success 0\ncompact_daemon_wake 390\ncompact_daemon_migrate_scanned 69086\ncompact_daemon_free_scanned 24810\ncma_alloc_success 23\ncma_alloc_fail 0\nunevictable_pgs_culled 0\nunevictable_pgs_scanned 0\nunevictable_pgs_rescued 0\nunevictable_pgs_mlocked 0\nunevictable_pgs_munlocked 0\nunevictable_pgs_cleared 0\nunevictable_pgs_stranded 0\nswap_ra 6221\nswap_ra_hit 4862\nnr_unstable 0\n",
+    "thermal": {
+      "/sys/class/thermal/thermal_zone2/temp": "54020\n",
+      "/sys/class/thermal/thermal_zone0/temp": "58435\n",
+      "/sys/class/thermal/thermal_zone5/temp": "45000\n",
+      "/sys/class/thermal/thermal_zone3/temp": "54242\n",
+      "/sys/class/thermal/thermal_zone1/temp": "57005\n",
+      "/sys/class/thermal/thermal_zone6/temp": "25400\n",
+      "/sys/class/thermal/thermal_zone4/temp": "56615\n"
+    }
+  },
+  "window_start_ms": 19158171.291448,
+  "state_samples": [
+    {
+      "mono_ms": 19163202.874928,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 19168230.01336,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 19173234.516365997,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 19178244.267222,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 19183256.341213,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 19188270.868086997,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 19193300.782544,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 19198312.904046,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 19203348.498941,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 19208383.978214,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 19213418.131279,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 19218434.277221,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 19223440.757186,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 19228451.918291003,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 19233481.146234002,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 19238501.430242,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 19243516.683450997,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 19248527.688736003,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 19253544.33833,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 19258552.220407,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 19263564.506121997,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 19268574.018043,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 19273580.742169,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 19278203.199040998,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    }
+  ],
+  "window_end_ms": 19278203.228499,
+  "census_end": {
+    "cpu_khz": "1992000\n",
+    "governor": "performance\n",
+    "meminfo": "MemTotal:         986064 kB\nMemFree:           17900 kB\nMemAvailable:     213140 kB\nBuffers:            3244 kB\nCached:           155116 kB\nSwapCached:         3024 kB\nActive:            86992 kB\nInactive:         657752 kB\nActive(anon):       9436 kB\nInactive(anon):   580140 kB\nActive(file):      77556 kB\nInactive(file):    77612 kB\nUnevictable:           0 kB\nMlocked:               0 kB\nSwapTotal:       2065884 kB\nSwapFree:        2034396 kB\nDirty:                52 kB\nWriteback:             0 kB\nAnonPages:        583704 kB\nMapped:            44564 kB\nShmem:              3108 kB\nKReclaimable:      55916 kB\nSlab:             152516 kB\nSReclaimable:      55916 kB\nSUnreclaim:        96600 kB\nKernelStack:        3280 kB\nPageTables:         3216 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:     2558916 kB\nCommitted_AS:     613948 kB\nVmallocTotal:   259653632 kB\nVmallocUsed:        9952 kB\nVmallocChunk:          0 kB\nPercpu:             1152 kB\nCmaTotal:         131072 kB\nCmaFree:             316 kB\n",
+    "vmstat": "nr_free_pages 4475\nnr_zone_inactive_anon 145022\nnr_zone_active_anon 2359\nnr_zone_inactive_file 19403\nnr_zone_active_file 19405\nnr_zone_unevictable 0\nnr_zone_write_pending 13\nnr_mlock 0\nnr_bounce 0\nnr_free_cma 79\nnr_inactive_anon 145035\nnr_active_anon 2359\nnr_inactive_file 19403\nnr_active_file 19389\nnr_unevictable 0\nnr_slab_reclaimable 13979\nnr_slab_unreclaimable 24150\nnr_isolated_anon 0\nnr_isolated_file 0\nworkingset_nodes 3463\nworkingset_refault_anon 16955\nworkingset_refault_file 176649\nworkingset_activate_anon 6551\nworkingset_activate_file 89908\nworkingset_restore_anon 61\nworkingset_restore_file 60792\nworkingset_nodereclaim 0\nnr_anon_pages 145926\nnr_mapped 11141\nnr_file_pages 40346\nnr_dirty 13\nnr_writeback 0\nnr_writeback_temp 0\nnr_shmem 777\nnr_shmem_hugepages 0\nnr_shmem_pmdmapped 0\nnr_file_hugepages 0\nnr_file_pmdmapped 0\nnr_anon_transparent_hugepages 0\nnr_vmscan_write 69034\nnr_vmscan_immediate_reclaim 76\nnr_dirtied 103355\nnr_written 171434\nnr_kernel_misc_reclaimable 0\nnr_foll_pin_acquired 0\nnr_foll_pin_released 0\nnr_kernel_stack 3280\nnr_page_table_pages 804\nnr_swapcached 756\nnr_dirty_threshold 8354\nnr_dirty_background_threshold 4172\npgpgin 1232460\npgpgout 675149\npswpin 16955\npswpout 69034\npgalloc_dma 24889478\npgalloc_dma32 0\npgalloc_normal 0\npgalloc_movable 0\nallocstall_dma 0\nallocstall_dma32 0\nallocstall_normal 153\nallocstall_movable 350\npgskip_dma 0\npgskip_dma32 0\npgskip_normal 0\npgskip_movable 0\npgfree 25506030\npgactivate 289357\npgdeactivate 382569\npglazyfree 36\npgfault 28045643\npgmajfault 15790\npglazyfreed 0\npgrefill 469117\npgreuse 1338170\npgsteal_kswapd 394413\npgsteal_direct 23016\npgdemote_kswapd 0\npgdemote_direct 0\npgscan_kswapd 863183\npgscan_direct 69961\npgscan_direct_throttle 3\npgscan_anon 546664\npgscan_file 386480\npgsteal_anon 67679\npgsteal_file 349750\npginodesteal 0\nslabs_scanned 85120\nkswapd_inodesteal 21443\nkswapd_low_wmark_hit_quickly 169\nkswapd_high_wmark_hit_quickly 15\npageoutrun 554\npgrotated 69029\ndrop_pagecache 0\ndrop_slab 0\noom_kill 0\npgmigrate_success 577219\npgmigrate_fail 2411\nthp_migration_success 0\nthp_migration_fail 0\nthp_migration_split 0\ncompact_migrate_scanned 4686519\ncompact_free_scanned 14601226\ncompact_isolated 1227377\ncompact_stall 0\ncompact_fail 0\ncompact_success 0\ncompact_daemon_wake 428\ncompact_daemon_migrate_scanned 69086\ncompact_daemon_free_scanned 24810\ncma_alloc_success 23\ncma_alloc_fail 0\nunevictable_pgs_culled 0\nunevictable_pgs_scanned 0\nunevictable_pgs_rescued 0\nunevictable_pgs_mlocked 0\nunevictable_pgs_munlocked 0\nunevictable_pgs_cleared 0\nunevictable_pgs_stranded 0\nswap_ra 6221\nswap_ra_hit 4862\nnr_unstable 0\n",
+    "thermal": {
+      "/sys/class/thermal/thermal_zone2/temp": "54390\n",
+      "/sys/class/thermal/thermal_zone0/temp": "57005\n",
+      "/sys/class/thermal/thermal_zone5/temp": "46200\n",
+      "/sys/class/thermal/thermal_zone3/temp": "54390\n",
+      "/sys/class/thermal/thermal_zone1/temp": "55965\n",
+      "/sys/class/thermal/thermal_zone6/temp": "25400\n",
+      "/sys/class/thermal/thermal_zone4/temp": "55900\n"
+    }
+  },
+  "runtime_memory": "Name:\tquix-fast\nUmask:\t0022\nState:\tR (running)\nTgid:\t11128\nNgid:\t0\nPid:\t11128\nPPid:\t11127\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t \nNStgid:\t11128\nNSpid:\t11128\nNSpgid:\t10828\nNSsid:\t10828\nVmPeak:\t134637232 kB\nVmSize:\t73514904 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t  610292 kB\nVmRSS:\t  610292 kB\nRssAnon:\t  570984 kB\nRssFile:\t   37272 kB\nRssShmem:\t    2036 kB\nVmData:\t72151924 kB\nVmStk:\t     188 kB\nVmExe:\t   22628 kB\nVmLib:\t   55896 kB\nVmPTE:\t    1628 kB\nVmSwap:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t0\nThreads:\t19\nSigQ:\t1/3331\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000000000002\nSigCgt:\t00000009400056ed\nCapInh:\t0000000000000000\nCapPrm:\t000001ffffffffff\nCapEff:\t000001ffffffffff\nCapBnd:\t000001ffffffffff\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t0\nSeccomp_filters:\t0\nSpeculation_Store_Bypass:\tnot vulnerable\nSpeculationIndirectBranch:\tunknown\nCpus_allowed:\tff\nCpus_allowed_list:\t0-7\nMems_allowed:\t1\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t6368\nnonvoluntary_ctxt_switches:\t1678\n",
+  "state_end": {
+    "map": "arid.forest-1",
+    "teleporting": false,
+    "player": {
+      "x": 856,
+      "y": 936,
+      "z": 0
+    },
+    "camera": {
+      "x": 580,
+      "y": 772
+    },
+    "hp": 641,
+    "input": {
+      "confirm": false
+    },
+    "pad": null,
+    "gameDelegate": true,
+    "loading": false,
+    "scale": 1,
+    "width": 568,
+    "height": 320,
+    "contextWidth": 568,
+    "contextHeight": 320,
+    "canvas": [
+      568,
+      320
+    ],
+    "options": {
+      "language": "0",
+      "pause-unfocused": true,
+      "volume-music": 0.8,
+      "volume-sound": 1,
+      "skip-tutorials": false,
+      "skip-confirm": true,
+      "text-speed": 0.015,
+      "message-padding": 0,
+      "game-sense": false,
+      "circuit-text-size": 2,
+      "circuit-display-time": 0,
+      "equip-level-display": true,
+      "level-letter-display": true,
+      "buff-help": true,
+      "update-trophy-style": 1,
+      "update-quest-style": 0,
+      "update-landmark-style": 0,
+      "update-lore-style": 1,
+      "update-drop-style": 0,
+      "min-sidebar": false,
+      "item-hud-size": 0,
+      "show-items": true,
+      "show-money": true,
+      "min-quest": false,
+      "quest-show-current": false,
+      "xeno-pointer": true,
+      "hud-display": true,
+      "close-combat-input": true,
+      "close-circle": true,
+      "sp-bar": true,
+      "element-overload": true,
+      "low-health-warning": true,
+      "combat-art-name": false,
+      "damage-numbers": true,
+      "damage-numbers-crit": false,
+      "s-rank-effects": true,
+      "enemy-status-bars": true,
+      "hp-bars": 1,
+      "party-combat-arts": 0,
+      "quick-menu-access": 0,
+      "quick-location": 0,
+      "quick-element": true,
+      "quick-cursor": true,
+      "display-type": 0,
+      "fullscreen": true,
+      "pixel-size": 0,
+      "rumble-strength": 3,
+      "speedlines": true,
+      "env-particles": true,
+      "weather": true,
+      "lighting": true,
+      "gamepad-attack": 0,
+      "gamepad-dash": 0,
+      "gamepad-icons": 0,
+      "arena-cam-focus": true,
+      "arena-confirm": true,
+      "element-wheel": false,
+      "keys-confirm": {
+        "key1": 13
+      },
+      "keys-back": {
+        "key1": 8
+      },
+      "keys-menu": {
+        "key1": 9
+      },
+      "keys-pause": {
+        "key1": 27
+      },
+      "keys-help": {
+        "key1": 72
+      },
+      "keys-help2": {
+        "key1": 66
+      },
+      "keys-help3": {
+        "key1": 78
+      },
+      "keys-skip-cutscene": {
+        "key1": 71
+      },
+      "keys-help4": {
+        "key1": 73
+      },
+      "keys-circle-left": {
+        "key1": 81
+      },
+      "keys-circle-right": {
+        "key1": 69
+      },
+      "keys-up": {
+        "key1": 87,
+        "key2": 38
+      },
+      "keys-right": {
+        "key1": 68,
+        "key2": 39
+      },
+      "keys-down": {
+        "key1": 83,
+        "key2": 40
+      },
+      "keys-left": {
+        "key1": 65,
+        "key2": 37
+      },
+      "keys-melee": {
+        "key1": 86
+      },
+      "keys-guard": {
+        "key1": 67
+      },
+      "keys-quick": {
+        "key1": 16
+      },
+      "keys-special": {
+        "key1": 32
+      },
+      "keys-dash2": {
+        "key1": 18
+      },
+      "keys-cold": {
+        "key1": 49
+      },
+      "keys-shock": {
+        "key1": 50
+      },
+      "keys-heat": {
+        "key1": 51
+      },
+      "keys-wave": {
+        "key1": 52
+      },
+      "keys-neutral": {
+        "key1": 192,
+        "key2": 53
+      },
+      "assist-damage": 1,
+      "assist-attack-frequency": 1,
+      "assist-puzzle-speed": 1
+    }
+  },
+  "exit_code": 0
+}

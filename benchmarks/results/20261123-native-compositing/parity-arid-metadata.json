@@ -1,0 +1,747 @@
+{
+  "completed": true,
+  "args": {
+    "label": "parity-arid",
+    "binary": "/mnt/SDCARD/Roms/PORTS/crosscode-qx/perf-next-20261122/quix-verify.aarch64",
+    "backend": "dummy",
+    "map": "arid.forest-1",
+    "marker": "",
+    "position": null,
+    "verify": true,
+    "exercise": false,
+    "seconds": 10,
+    "warmup": 10
+  },
+  "binary_sha256": "69a77aa180c5c900967e3991f5991bbfa23623794ceb17fac43e46c8d92e77df",
+  "env": {
+    "QUIX_FAST_OPAQUE_BLIT": "1",
+    "CC_PERF_CSV": "/mnt/SDCARD/Roms/PORTS/crosscode-qx/perf-next-20261122/runs/parity-arid/frames.csv"
+  },
+  "pid": 14125,
+  "state_start": {
+    "map": "arid.forest-1",
+    "teleporting": false,
+    "player": {
+      "x": 856,
+      "y": 936,
+      "z": 0
+    },
+    "camera": {
+      "x": 580,
+      "y": 772
+    },
+    "hp": 641,
+    "input": {
+      "confirm": false
+    },
+    "pad": null,
+    "gameDelegate": true,
+    "loading": false,
+    "scale": 1,
+    "width": 568,
+    "height": 320,
+    "contextWidth": 568,
+    "contextHeight": 320,
+    "canvas": [
+      568,
+      320
+    ],
+    "options": {
+      "language": "0",
+      "pause-unfocused": true,
+      "volume-music": 0.8,
+      "volume-sound": 1,
+      "skip-tutorials": false,
+      "skip-confirm": true,
+      "text-speed": 0.015,
+      "message-padding": 0,
+      "game-sense": false,
+      "circuit-text-size": 2,
+      "circuit-display-time": 0,
+      "equip-level-display": true,
+      "level-letter-display": true,
+      "buff-help": true,
+      "update-trophy-style": 1,
+      "update-quest-style": 0,
+      "update-landmark-style": 0,
+      "update-lore-style": 1,
+      "update-drop-style": 0,
+      "min-sidebar": false,
+      "item-hud-size": 0,
+      "show-items": true,
+      "show-money": true,
+      "min-quest": false,
+      "quest-show-current": false,
+      "xeno-pointer": true,
+      "hud-display": true,
+      "close-combat-input": true,
+      "close-circle": true,
+      "sp-bar": true,
+      "element-overload": true,
+      "low-health-warning": true,
+      "combat-art-name": false,
+      "damage-numbers": true,
+      "damage-numbers-crit": false,
+      "s-rank-effects": true,
+      "enemy-status-bars": true,
+      "hp-bars": 1,
+      "party-combat-arts": 0,
+      "quick-menu-access": 0,
+      "quick-location": 0,
+      "quick-element": true,
+      "quick-cursor": true,
+      "display-type": 0,
+      "fullscreen": true,
+      "pixel-size": 0,
+      "rumble-strength": 3,
+      "speedlines": true,
+      "env-particles": true,
+      "weather": true,
+      "lighting": true,
+      "gamepad-attack": 0,
+      "gamepad-dash": 0,
+      "gamepad-icons": 0,
+      "arena-cam-focus": true,
+      "arena-confirm": true,
+      "element-wheel": false,
+      "keys-confirm": {
+        "key1": 13
+      },
+      "keys-back": {
+        "key1": 8
+      },
+      "keys-menu": {
+        "key1": 9
+      },
+      "keys-pause": {
+        "key1": 27
+      },
+      "keys-help": {
+        "key1": 72
+      },
+      "keys-help2": {
+        "key1": 66
+      },
+      "keys-help3": {
+        "key1": 78
+      },
+      "keys-skip-cutscene": {
+        "key1": 71
+      },
+      "keys-help4": {
+        "key1": 73
+      },
+      "keys-circle-left": {
+        "key1": 81
+      },
+      "keys-circle-right": {
+        "key1": 69
+      },
+      "keys-up": {
+        "key1": 87,
+        "key2": 38
+      },
+      "keys-right": {
+        "key1": 68,
+        "key2": 39
+      },
+      "keys-down": {
+        "key1": 83,
+        "key2": 40
+      },
+      "keys-left": {
+        "key1": 65,
+        "key2": 37
+      },
+      "keys-melee": {
+        "key1": 86
+      },
+      "keys-guard": {
+        "key1": 67
+      },
+      "keys-quick": {
+        "key1": 16
+      },
+      "keys-special": {
+        "key1": 32
+      },
+      "keys-dash2": {
+        "key1": 18
+      },
+      "keys-cold": {
+        "key1": 49
+      },
+      "keys-shock": {
+        "key1": 50
+      },
+      "keys-heat": {
+        "key1": 51
+      },
+      "keys-wave": {
+        "key1": 52
+      },
+      "keys-neutral": {
+        "key1": 192,
+        "key2": 53
+      },
+      "assist-damage": 1,
+      "assist-attack-frequency": 1,
+      "assist-puzzle-speed": 1
+    }
+  },
+  "census_start": {
+    "cpu_khz": "1488000\n",
+    "governor": "conservative\n",
+    "meminfo": "MemTotal:         986064 kB\nMemFree:           10400 kB\nMemAvailable:     251360 kB\nBuffers:           13588 kB\nCached:           161172 kB\nSwapCached:         3052 kB\nActive:            94624 kB\nInactive:         614140 kB\nActive(anon):       9376 kB\nInactive(anon):   527732 kB\nActive(file):      85248 kB\nInactive(file):    86408 kB\nUnevictable:           0 kB\nMlocked:               0 kB\nSwapTotal:       2065884 kB\nSwapFree:        2031580 kB\nDirty:               332 kB\nWriteback:             0 kB\nAnonPages:        531224 kB\nMapped:            53756 kB\nShmem:              3104 kB\nKReclaimable:      94772 kB\nSlab:             191396 kB\nSReclaimable:      94772 kB\nSUnreclaim:        96624 kB\nKernelStack:        3360 kB\nPageTables:         3164 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:     2558916 kB\nCommitted_AS:     705464 kB\nVmallocTotal:   259653632 kB\nVmallocUsed:        9324 kB\nVmallocChunk:          0 kB\nPercpu:             1152 kB\nCmaTotal:         131072 kB\nCmaFree:             116 kB\n",
+    "vmstat": "nr_free_pages 2600\nnr_zone_inactive_anon 131933\nnr_zone_active_anon 2344\nnr_zone_inactive_file 21602\nnr_zone_active_file 21312\nnr_zone_unevictable 0\nnr_zone_write_pending 82\nnr_mlock 0\nnr_bounce 0\nnr_free_cma 29\nnr_inactive_anon 131933\nnr_active_anon 2344\nnr_inactive_file 21602\nnr_active_file 21312\nnr_unevictable 0\nnr_slab_reclaimable 23693\nnr_slab_unreclaimable 24156\nnr_isolated_anon 0\nnr_isolated_file 0\nworkingset_nodes 3882\nworkingset_refault_anon 17997\nworkingset_refault_file 225322\nworkingset_activate_anon 6843\nworkingset_activate_file 110567\nworkingset_restore_anon 61\nworkingset_restore_file 79112\nworkingset_nodereclaim 0\nnr_anon_pages 132806\nnr_mapped 13439\nnr_file_pages 44453\nnr_dirty 83\nnr_writeback 0\nnr_writeback_temp 0\nnr_shmem 776\nnr_shmem_hugepages 0\nnr_shmem_pmdmapped 0\nnr_file_hugepages 0\nnr_file_pmdmapped 0\nnr_anon_transparent_hugepages 0\nnr_vmscan_write 71050\nnr_vmscan_immediate_reclaim 117\nnr_dirtied 127015\nnr_written 197041\nnr_kernel_misc_reclaimable 0\nnr_foll_pin_acquired 0\nnr_foll_pin_released 0\nnr_kernel_stack 3360\nnr_page_table_pages 791\nnr_swapcached 763\nnr_dirty_threshold 8803\nnr_dirty_background_threshold 4396\npgpgin 1429580\npgpgout 776287\npswpin 17997\npswpout 71050\npgalloc_dma 26992544\npgalloc_dma32 0\npgalloc_normal 0\npgalloc_movable 0\nallocstall_dma 0\nallocstall_dma32 0\nallocstall_normal 156\nallocstall_movable 390\npgskip_dma 0\npgskip_dma32 0\npgskip_normal 0\npgskip_movable 0\npgfree 27682796\npgactivate 341562\npgdeactivate 455661\npglazyfree 48\npgfault 30281461\npgmajfault 16954\npglazyfreed 0\npgrefill 561342\npgreuse 1423521\npgsteal_kswapd 462658\npgsteal_direct 24645\npgdemote_kswapd 0\npgdemote_direct 0\npgscan_kswapd 1023829\npgscan_direct 77204\npgscan_direct_throttle 3\npgscan_anon 644763\npgscan_file 456270\npgsteal_anon 69702\npgsteal_file 417601\npginodesteal 0\nslabs_scanned 87936\nkswapd_inodesteal 21443\nkswapd_low_wmark_hit_quickly 188\nkswapd_high_wmark_hit_quickly 17\npageoutrun 644\npgrotated 71086\ndrop_pagecache 0\ndrop_slab 0\noom_kill 0\npgmigrate_success 645292\npgmigrate_fail 2533\nthp_migration_success 0\nthp_migration_fail 0\nthp_migration_split 0\ncompact_migrate_scanned 5221555\ncompact_free_scanned 16908110\ncompact_isolated 1374530\ncompact_stall 0\ncompact_fail 0\ncompact_success 0\ncompact_daemon_wake 487\ncompact_daemon_migrate_scanned 72002\ncompact_daemon_free_scanned 24817\ncma_alloc_success 27\ncma_alloc_fail 0\nunevictable_pgs_culled 0\nunevictable_pgs_scanned 0\nunevictable_pgs_rescued 0\nunevictable_pgs_mlocked 0\nunevictable_pgs_munlocked 0\nunevictable_pgs_cleared 0\nunevictable_pgs_stranded 0\nswap_ra 6655\nswap_ra_hit 5107\nnr_unstable 0\n",
+    "thermal": {
+      "/sys/class/thermal/thermal_zone2/temp": "51578\n",
+      "/sys/class/thermal/thermal_zone0/temp": "52910\n",
+      "/sys/class/thermal/thermal_zone5/temp": "43900\n",
+      "/sys/class/thermal/thermal_zone3/temp": "51060\n",
+      "/sys/class/thermal/thermal_zone1/temp": "53650\n",
+      "/sys/class/thermal/thermal_zone6/temp": "25400\n",
+      "/sys/class/thermal/thermal_zone4/temp": "52540\n"
+    }
+  },
+  "window_start_ms": 20160632.474142,
+  "state_samples": [
+    {
+      "mono_ms": 20165889.034125,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    },
+    {
+      "mono_ms": 20170882.784255,
+      "state": {
+        "map": "arid.forest-1",
+        "teleporting": false,
+        "player": {
+          "x": 856,
+          "y": 936,
+          "z": 0
+        },
+        "camera": {
+          "x": 580,
+          "y": 772
+        },
+        "hp": 641,
+        "input": {
+          "confirm": false
+        },
+        "pad": null,
+        "gameDelegate": true,
+        "loading": false,
+        "scale": 1,
+        "width": 568,
+        "height": 320,
+        "contextWidth": 568,
+        "contextHeight": 320,
+        "canvas": [
+          568,
+          320
+        ],
+        "options": {
+          "language": "0",
+          "pause-unfocused": true,
+          "volume-music": 0.8,
+          "volume-sound": 1,
+          "skip-tutorials": false,
+          "skip-confirm": true,
+          "text-speed": 0.015,
+          "message-padding": 0,
+          "game-sense": false,
+          "circuit-text-size": 2,
+          "circuit-display-time": 0,
+          "equip-level-display": true,
+          "level-letter-display": true,
+          "buff-help": true,
+          "update-trophy-style": 1,
+          "update-quest-style": 0,
+          "update-landmark-style": 0,
+          "update-lore-style": 1,
+          "update-drop-style": 0,
+          "min-sidebar": false,
+          "item-hud-size": 0,
+          "show-items": true,
+          "show-money": true,
+          "min-quest": false,
+          "quest-show-current": false,
+          "xeno-pointer": true,
+          "hud-display": true,
+          "close-combat-input": true,
+          "close-circle": true,
+          "sp-bar": true,
+          "element-overload": true,
+          "low-health-warning": true,
+          "combat-art-name": false,
+          "damage-numbers": true,
+          "damage-numbers-crit": false,
+          "s-rank-effects": true,
+          "enemy-status-bars": true,
+          "hp-bars": 1,
+          "party-combat-arts": 0,
+          "quick-menu-access": 0,
+          "quick-location": 0,
+          "quick-element": true,
+          "quick-cursor": true,
+          "display-type": 0,
+          "fullscreen": true,
+          "pixel-size": 0,
+          "rumble-strength": 3,
+          "speedlines": true,
+          "env-particles": true,
+          "weather": true,
+          "lighting": true,
+          "gamepad-attack": 0,
+          "gamepad-dash": 0,
+          "gamepad-icons": 0,
+          "arena-cam-focus": true,
+          "arena-confirm": true,
+          "element-wheel": false,
+          "keys-confirm": {
+            "key1": 13
+          },
+          "keys-back": {
+            "key1": 8
+          },
+          "keys-menu": {
+            "key1": 9
+          },
+          "keys-pause": {
+            "key1": 27
+          },
+          "keys-help": {
+            "key1": 72
+          },
+          "keys-help2": {
+            "key1": 66
+          },
+          "keys-help3": {
+            "key1": 78
+          },
+          "keys-skip-cutscene": {
+            "key1": 71
+          },
+          "keys-help4": {
+            "key1": 73
+          },
+          "keys-circle-left": {
+            "key1": 81
+          },
+          "keys-circle-right": {
+            "key1": 69
+          },
+          "keys-up": {
+            "key1": 87,
+            "key2": 38
+          },
+          "keys-right": {
+            "key1": 68,
+            "key2": 39
+          },
+          "keys-down": {
+            "key1": 83,
+            "key2": 40
+          },
+          "keys-left": {
+            "key1": 65,
+            "key2": 37
+          },
+          "keys-melee": {
+            "key1": 86
+          },
+          "keys-guard": {
+            "key1": 67
+          },
+          "keys-quick": {
+            "key1": 16
+          },
+          "keys-special": {
+            "key1": 32
+          },
+          "keys-dash2": {
+            "key1": 18
+          },
+          "keys-cold": {
+            "key1": 49
+          },
+          "keys-shock": {
+            "key1": 50
+          },
+          "keys-heat": {
+            "key1": 51
+          },
+          "keys-wave": {
+            "key1": 52
+          },
+          "keys-neutral": {
+            "key1": 192,
+            "key2": 53
+          },
+          "assist-damage": 1,
+          "assist-attack-frequency": 1,
+          "assist-puzzle-speed": 1
+        }
+      }
+    }
+  ],
+  "window_end_ms": 20170882.808505002,
+  "census_end": {
+    "cpu_khz": "1488000\n",
+    "governor": "conservative\n",
+    "meminfo": "MemTotal:         986064 kB\nMemFree:           15100 kB\nMemAvailable:     259816 kB\nBuffers:           13588 kB\nCached:           156344 kB\nSwapCached:         3052 kB\nActive:            93840 kB\nInactive:         610196 kB\nActive(anon):       9380 kB\nInactive(anon):   527828 kB\nActive(file):      84460 kB\nInactive(file):    82368 kB\nUnevictable:           0 kB\nMlocked:               0 kB\nSwapTotal:       2065884 kB\nSwapFree:        2031580 kB\nDirty:               412 kB\nWriteback:             0 kB\nAnonPages:        531260 kB\nMapped:            53740 kB\nShmem:              3104 kB\nKReclaimable:      93732 kB\nSlab:             190356 kB\nSReclaimable:      93732 kB\nSUnreclaim:        96624 kB\nKernelStack:        3344 kB\nPageTables:         3176 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:     2558916 kB\nCommitted_AS:     697272 kB\nVmallocTotal:   259653632 kB\nVmallocUsed:        9324 kB\nVmallocChunk:          0 kB\nPercpu:             1152 kB\nCmaTotal:         131072 kB\nCmaFree:             660 kB\n",
+    "vmstat": "nr_free_pages 3775\nnr_zone_inactive_anon 131957\nnr_zone_active_anon 2345\nnr_zone_inactive_file 20592\nnr_zone_active_file 21115\nnr_zone_unevictable 0\nnr_zone_write_pending 103\nnr_mlock 0\nnr_bounce 0\nnr_free_cma 165\nnr_inactive_anon 131957\nnr_active_anon 2345\nnr_inactive_file 20592\nnr_active_file 21115\nnr_unevictable 0\nnr_slab_reclaimable 23433\nnr_slab_unreclaimable 24156\nnr_isolated_anon 0\nnr_isolated_file 0\nworkingset_nodes 3918\nworkingset_refault_anon 17997\nworkingset_refault_file 225322\nworkingset_activate_anon 6843\nworkingset_activate_file 110567\nworkingset_restore_anon 61\nworkingset_restore_file 79112\nworkingset_nodereclaim 0\nnr_anon_pages 132815\nnr_mapped 13435\nnr_file_pages 43246\nnr_dirty 103\nnr_writeback 0\nnr_writeback_temp 0\nnr_shmem 776\nnr_shmem_hugepages 0\nnr_shmem_pmdmapped 0\nnr_file_hugepages 0\nnr_file_pmdmapped 0\nnr_anon_transparent_hugepages 0\nnr_vmscan_write 71050\nnr_vmscan_immediate_reclaim 117\nnr_dirtied 127036\nnr_written 197041\nnr_kernel_misc_reclaimable 0\nnr_foll_pin_acquired 0\nnr_foll_pin_released 0\nnr_kernel_stack 3344\nnr_page_table_pages 794\nnr_swapcached 763\nnr_dirty_threshold 8797\nnr_dirty_background_threshold 4393\npgpgin 1429580\npgpgout 776287\npswpin 17997\npswpout 71050\npgalloc_dma 28023602\npgalloc_dma32 0\npgalloc_normal 0\npgalloc_movable 0\nallocstall_dma 0\nallocstall_dma32 0\nallocstall_normal 156\nallocstall_movable 391\npgskip_dma 0\npgskip_dma32 0\npgskip_normal 0\npgskip_movable 0\npgfree 28716219\npgactivate 341563\npgdeactivate 455859\npglazyfree 48\npgfault 31302049\npgmajfault 16954\npglazyfreed 0\npgrefill 561540\npgreuse 1423966\npgsteal_kswapd 463848\npgsteal_direct 24681\npgdemote_kswapd 0\npgdemote_direct 0\npgscan_kswapd 1025851\npgscan_direct 77240\npgscan_direct_throttle 3\npgscan_anon 645594\npgscan_file 457497\npgsteal_anon 69702\npgsteal_file 418827\npginodesteal 0\nslabs_scanned 87936\nkswapd_inodesteal 21443\nkswapd_low_wmark_hit_quickly 188\nkswapd_high_wmark_hit_quickly 17\npageoutrun 645\npgrotated 71086\ndrop_pagecache 0\ndrop_slab 0\noom_kill 0\npgmigrate_success 646494\npgmigrate_fail 2534\nthp_migration_success 0\nthp_migration_fail 0\nthp_migration_split 0\ncompact_migrate_scanned 5228460\ncompact_free_scanned 17009386\ncompact_isolated 1377007\ncompact_stall 0\ncompact_fail 0\ncompact_success 0\ncompact_daemon_wake 488\ncompact_daemon_migrate_scanned 72002\ncompact_daemon_free_scanned 24817\ncma_alloc_success 27\ncma_alloc_fail 0\nunevictable_pgs_culled 0\nunevictable_pgs_scanned 0\nunevictable_pgs_rescued 0\nunevictable_pgs_mlocked 0\nunevictable_pgs_munlocked 0\nunevictable_pgs_cleared 0\nunevictable_pgs_stranded 0\nswap_ra 6655\nswap_ra_hit 5107\nnr_unstable 0\n",
+    "thermal": {
+      "/sys/class/thermal/thermal_zone2/temp": "51726\n",
+      "/sys/class/thermal/thermal_zone0/temp": "54390\n",
+      "/sys/class/thermal/thermal_zone5/temp": "45000\n",
+      "/sys/class/thermal/thermal_zone3/temp": "51726\n",
+      "/sys/class/thermal/thermal_zone1/temp": "55445\n",
+      "/sys/class/thermal/thermal_zone6/temp": "25400\n",
+      "/sys/class/thermal/thermal_zone4/temp": "54612\n"
+    }
+  },
+  "runtime_memory": "Name:\tquix-verify.aar\nUmask:\t0022\nState:\tR (running)\nTgid:\t14125\nNgid:\t0\nPid:\t14125\nPPid:\t14122\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t14125\nNSpid:\t14125\nNSpgid:\t3586\nNSsid:\t3586\nVmPeak:\t134271204 kB\nVmSize:\t72901756 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t  508308 kB\nVmRSS:\t  507728 kB\nRssAnon:\t  483200 kB\nRssFile:\t   22496 kB\nRssShmem:\t    2032 kB\nVmData:\t71842640 kB\nVmStk:\t     192 kB\nVmExe:\t   22628 kB\nVmLib:\t    8764 kB\nVmPTE:\t    1260 kB\nVmSwap:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t0\nThreads:\t5\nSigQ:\t2/3331\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000000000004\nSigCgt:\t0000000100000640\nCapInh:\t0000000000000000\nCapPrm:\t000001ffffffffff\nCapEff:\t000001ffffffffff\nCapBnd:\t000001ffffffffff\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t0\nSeccomp_filters:\t0\nSpeculation_Store_Bypass:\tnot vulnerable\nSpeculationIndirectBranch:\tunknown\nCpus_allowed:\tff\nCpus_allowed_list:\t0-7\nMems_allowed:\t1\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t1362\nnonvoluntary_ctxt_switches:\t2491\n",
+  "state_end": {
+    "map": "arid.forest-1",
+    "teleporting": false,
+    "player": {
+      "x": 856,
+      "y": 936,
+      "z": 0
+    },
+    "camera": {
+      "x": 580,
+      "y": 772
+    },
+    "hp": 641,
+    "input": {
+      "confirm": false
+    },
+    "pad": null,
+    "gameDelegate": true,
+    "loading": false,
+    "scale": 1,
+    "width": 568,
+    "height": 320,
+    "contextWidth": 568,
+    "contextHeight": 320,
+    "canvas": [
+      568,
+      320
+    ],
+    "options": {
+      "language": "0",
+      "pause-unfocused": true,
+      "volume-music": 0.8,
+      "volume-sound": 1,
+      "skip-tutorials": false,
+      "skip-confirm": true,
+      "text-speed": 0.015,
+      "message-padding": 0,
+      "game-sense": false,
+      "circuit-text-size": 2,
+      "circuit-display-time": 0,
+      "equip-level-display": true,
+      "level-letter-display": true,
+      "buff-help": true,
+      "update-trophy-style": 1,
+      "update-quest-style": 0,
+      "update-landmark-style": 0,
+      "update-lore-style": 1,
+      "update-drop-style": 0,
+      "min-sidebar": false,
+      "item-hud-size": 0,
+      "show-items": true,
+      "show-money": true,
+      "min-quest": false,
+      "quest-show-current": false,
+      "xeno-pointer": true,
+      "hud-display": true,
+      "close-combat-input": true,
+      "close-circle": true,
+      "sp-bar": true,
+      "element-overload": true,
+      "low-health-warning": true,
+      "combat-art-name": false,
+      "damage-numbers": true,
+      "damage-numbers-crit": false,
+      "s-rank-effects": true,
+      "enemy-status-bars": true,
+      "hp-bars": 1,
+      "party-combat-arts": 0,
+      "quick-menu-access": 0,
+      "quick-location": 0,
+      "quick-element": true,
+      "quick-cursor": true,
+      "display-type": 0,
+      "fullscreen": true,
+      "pixel-size": 0,
+      "rumble-strength": 3,
+      "speedlines": true,
+      "env-particles": true,
+      "weather": true,
+      "lighting": true,
+      "gamepad-attack": 0,
+      "gamepad-dash": 0,
+      "gamepad-icons": 0,
+      "arena-cam-focus": true,
+      "arena-confirm": true,
+      "element-wheel": false,
+      "keys-confirm": {
+        "key1": 13
+      },
+      "keys-back": {
+        "key1": 8
+      },
+      "keys-menu": {
+        "key1": 9
+      },
+      "keys-pause": {
+        "key1": 27
+      },
+      "keys-help": {
+        "key1": 72
+      },
+      "keys-help2": {
+        "key1": 66
+      },
+      "keys-help3": {
+        "key1": 78
+      },
+      "keys-skip-cutscene": {
+        "key1": 71
+      },
+      "keys-help4": {
+        "key1": 73
+      },
+      "keys-circle-left": {
+        "key1": 81
+      },
+      "keys-circle-right": {
+        "key1": 69
+      },
+      "keys-up": {
+        "key1": 87,
+        "key2": 38
+      },
+      "keys-right": {
+        "key1": 68,
+        "key2": 39
+      },
+      "keys-down": {
+        "key1": 83,
+        "key2": 40
+      },
+      "keys-left": {
+        "key1": 65,
+        "key2": 37
+      },
+      "keys-melee": {
+        "key1": 86
+      },
+      "keys-guard": {
+        "key1": 67
+      },
+      "keys-quick": {
+        "key1": 16
+      },
+      "keys-special": {
+        "key1": 32
+      },
+      "keys-dash2": {
+        "key1": 18
+      },
+      "keys-cold": {
+        "key1": 49
+      },
+      "keys-shock": {
+        "key1": 50
+      },
+      "keys-heat": {
+        "key1": 51
+      },
+      "keys-wave": {
+        "key1": 52
+      },
+      "keys-neutral": {
+        "key1": 192,
+        "key2": 53
+      },
+      "assist-damage": 1,
+      "assist-attack-frequency": 1,
+      "assist-puzzle-speed": 1
+    }
+  },
+  "exit_code": 0
+}

@@ -1,0 +1,14 @@
+{
+  "parity-arid": {
+    "source_over_calls": 6051,
+    "destination_out_calls": 152,
+    "compared_surface_pixels": 1127707089,
+    "map": "arid.forest-1"
+  },
+  "parity-bergen": {
+    "source_over_calls": 5476,
+    "destination_out_calls": 0,
+    "compared_surface_pixels": 995317760,
+    "map": "bergen-trail.path-8"
+  }
+}
