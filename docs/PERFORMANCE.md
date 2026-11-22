@@ -114,12 +114,31 @@ only `QUIX_FAST_OPAQUE_BLIT` differs:
 Mean effect: **+3.37 FPS / -1.52 ms js**; the OFF and ON ranges do not overlap.
 `QUIX_FAST_OPAQUE_BLIT` is read only by the patched raster branch, so the same
 binary with only that variable changed isolates the branch's effect even without
-per-block counters. Caveats from independent review: this is a headless
-`-b dummy` run (present ~0.3 ms vs ~2.3 ms on the real SDL path), the map is
-moderately heavy rather than `arid.forest-1`, animation frames are not identical,
-p95 js did not improve consistently, and the share of eligible opaque blits was
-not counted. The flag therefore stays opt-in (default 0) until a real-display
-A/B on the heaviest map confirms the gain. **The 30 FPS target is not reached.**
+per-block counters.
+
+Real SDL re-test (same device, real display, CPU governor Performance, same
+preset and dialog sequence, principal-flow handoff not a stopped-UI run,
+89 steady per-second samples per arm, flag 0 / 1 / 0):
+
+| arm | median FPS | p95 FPS | median js | median present |
+| --- | --- | --- | --- | --- |
+| A0 flag 0 | 50.60 | 55.40 | 17.10 ms | 2.30 ms |
+| B1 flag 1 | 53.45 | 59.20 | 16.10 ms | 2.20 ms |
+| A2 flag 0 | 50.40 | 54.90 | 17.40 ms | 2.20 ms |
+
+Effect **+2.95 FPS / -1.15 ms js** with 0.2 FPS / 0.3 ms off-arm drift. KMS
+screenshots of all three arms show the same autumn scene with no missing layers
+or artifacts; their pixel differences are animation/camera phase (two flag-0
+arms also differ by 14% of pixels). On this evidence the launcher sets the flag
+to `1` by default for patched builds; `QUIX_FAST_OPAQUE_BLIT=0` still selects the
+original path.
+
+Remaining caveats from independent review: the scene is moderately heavy rather
+than `arid.forest-1`, animation frames are not pixel-identical, p95 improves in
+the SDL run but not consistently in the dummy runs, and the share of eligible
+opaque blits was not counted. **30 FPS at 568x320 with all effects on the
+heaviest maps is still unverified** — the measured gain is ~3 FPS, not a
+30-FPS fix.
 
 Upstream quixjs 0.5.1, tested in the same harness with `port.toml` and assets
 unchanged, gave 48.85 FPS / 19.90 ms js against baseline arms 47.80 and 46.35
