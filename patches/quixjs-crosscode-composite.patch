@@ -1,0 +1,33 @@
+--- a/runtime/gfx/surface.h
++++ b/runtime/gfx/surface.h
+@@ -83,6 +83,13 @@
+       return;
+     }
+     int da = dst[3];
++    if (da == 255) {
++      int k = 255 - a;
++      dst[0] = (uint8_t)((r * a + dst[0] * k) / 255);
++      dst[1] = (uint8_t)((g * a + dst[1] * k) / 255);
++      dst[2] = (uint8_t)((b * a + dst[2] * k) / 255);
++      return;
++    }
+     int oa = a * 255 + da * (255 - a);           // alpha * 255
+     int k = da * (255 - a) / 255;
+     dst[0] = (uint8_t)((r * a + dst[0] * k) * 255 / oa);
+@@ -116,6 +123,16 @@
+     dst[3] = (uint8_t)oa;
+     return;
+   }
++  if (op == OP_DESTINATION_OUT) {
++    int da = dst[3];
++    if (a >= 255 || da == 0) {
++      dst[0] = dst[1] = dst[2] = dst[3] = 0;
++    } else {
++      // Nonzero unrounded alpha preserves RGB, even when stored alpha rounds to 0.
++      dst[3] = (uint8_t)((da * (255 - a) + 127) / 255);
++    }
++    return;
++  }
+   blend_pixel_slow(dst, r, g, b, a, op);
+ }
+ 

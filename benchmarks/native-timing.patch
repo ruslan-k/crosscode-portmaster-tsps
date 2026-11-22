@@ -1,0 +1,170 @@
+--- a/runtime/core/main.c
++++ b/runtime/core/main.c
+@@ -63,6 +63,7 @@
+ #include "backend/backend.h"
+ #include "gfx/image_loader.h"
+ #include "gfx/raster.h"
++#include "gfx/ccperf.h"
+ #include "gfx/font.h"
+ #include "launcher/launcher.h"
+ #include "launcher/ui.h"
+@@ -604,6 +605,21 @@
+   if (cfg.engine.fps != 60) printf("Frame rate: %d fps\n", cfg.engine.fps);
+   int keep_window = args.backend == BACKEND_SDL;
+ 
++  FILE *cc_csv = NULL;
++  const char *cc_path = getenv("CC_PERF_CSV");
++  double cc_prev_end = 0;
++  if (cc_path && *cc_path) {
++    cc_csv = fopen(cc_path, "w");
++    if (!cc_csv) { perror("CC_PERF_CSV"); failed = 1; }
++    else {
++      setvbuf(cc_csv, NULL, _IOFBF, 65536);
++      fprintf(cc_csv, "frame,mono_ms,frame_ms,work_ms,js_ms,present_ms,fill_ms,image_ms,canvas_ms");
++      for (int i = 0; i <= OP_COUNT; i++) fprintf(cc_csv, ",di%d_ms,di%d_calls", i, i);
++      fputc('\n', cc_csv);
++      cc_perf.enabled = 1;
++      fps.enabled = 1;
++    }
++  }
+   // Bucle principal
+   while (!failed) {
+     double t_events = fps.enabled ? real_ms() : 0;
+@@ -688,6 +704,10 @@
+     static double vb_target = 0;
+     static int vb_frames = 0;
+     if (err == 0 && now >= next_frame) {
++      if (cc_csv) {
++        memset(&cc_perf, 0, sizeof cc_perf);
++        cc_perf.enabled = 1;
++      }
+       double t0 = fps.enabled ? real_ms() : 0;
+       double frame_slot = next_frame;   // el momento que le tocaba a esta imagen
+       // quix.frameTime: el refresco al que apuntara esta imagen (constante de
+@@ -820,6 +840,17 @@
+         dec_ms = quix_mem.decode_ms;
+       }
+ 
++      if (cc_csv) {
++        double end = real_ms();
++        fprintf(cc_csv, "%ld,%.3f,%.3f,%.3f,%.3f,%.3f,%.3f,%.3f,%.3f",
++                app.frame, end, cc_prev_end > 0 ? end - cc_prev_end : 0,
++                end - t0, t1 - t0, end - t1, cc_perf.fill_ms,
++                cc_perf.image_ms, cc_perf.canvas_ms);
++        for (int i = 0; i <= OP_COUNT; i++) fprintf(cc_csv, ",%.3f,%llu", cc_perf.draw[i], (unsigned long long)cc_perf.calls[i]);
++        fputc('\n', cc_csv);
++        if (app.frame % 60 == 0) fflush(cc_csv);
++        cc_prev_end = end;
++      }
+       app.frame++;
+       if (args.debug_sock) debug_frame_done();
+       // el tope puede cambiar en caliente (comando fps de la consola de debug)
+@@ -930,6 +961,8 @@
+     if (secs > 0) printf("FPS: %.1f (average of %ld frames)\n", (fps.total - 1) / secs, fps.total);
+   }
+   input_script_free();
++  if (cc_csv) fclose(cc_csv);
++
+   if (args.profile && profiler_running()) {
+     profiler_save(ctx, args.profile, 60);
+     printf("Profile: %s\n", args.profile);
+--- a/runtime/binding/canvas/2d/image.c
++++ b/runtime/binding/canvas/2d/image.c
+@@ -21,6 +21,7 @@
+ #include <math.h>
+ #include <string.h>
+ #include "context2d.h"
++#include "gfx/ccperf.h"
+ 
+ static JSValue imagedata_proto = { 0 };
+ static int     imagedata_ready = 0;
+@@ -152,6 +153,7 @@
+   DrawParams dp;
+   context2d_draw_params(c, &dp);
+ 
++  double cc_t = cc_perf.enabled ? cc_now() : 0;
+   if (src == dst) {
+     // dibujar un canvas sobre si mismo: se usa una copia
+     Surface copy;
+@@ -160,6 +162,11 @@
+     surface_free(&copy);
+   } else {
+     raster_draw_image(dst, src, sx, sy, sw, sh, dx, dy, dw, dh, &CTX2D_STATE(c)->transform, &dp);
++  }
++  if (cc_perf.enabled) {
++    double elapsed = cc_now() - cc_t;
++    if (js_canvas_get(ctx, argv[0])) cc_perf.canvas_ms += elapsed;
++    else cc_perf.image_ms += elapsed;
+   }
+   return JS_UNDEFINED;
+ }
+--- a/runtime/gfx/raster.c
++++ b/runtime/gfx/raster.c
+@@ -23,6 +23,8 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include "raster.h"
++#include "ccperf.h"
++CCPerf cc_perf;
+ 
+ // ------------------------------------------------------------------ path
+ 
+@@ -536,7 +538,7 @@
+   }
+ }
+ 
+-void raster_fill_rect(Surface *dst, double x, double y, double w, double h,
++static void cc_raster_fill_rect(Surface *dst, double x, double y, double w, double h,
+                       const Matrix *ctm, const PaintSampler *ps, const DrawParams *dp) {
+   if (!dst->px) return;
+ 
+@@ -708,7 +710,7 @@
+   raster_fill_rect(dst, x, y, w, h, ctm, &ps, &dp);
+ }
+ 
+-void raster_draw_image(Surface *dst, const Surface *src,
++static void cc_raster_draw_image(Surface *dst, const Surface *src,
+                        double sx, double sy, double sw, double sh,
+                        double dx, double dy, double dw, double dh,
+                        const Matrix *ctm, const DrawParams *dp) {
+@@ -898,3 +900,22 @@
+     }
+   }
+ }
++
++void raster_draw_image(Surface *dst, const Surface *src,
++                       double sx, double sy, double sw, double sh,
++                       double dx, double dy, double dw, double dh,
++                       const Matrix *ctm, const DrawParams *dp) {
++  double t = cc_perf.enabled ? cc_now() : 0;
++  cc_raster_draw_image(dst, src, sx, sy, sw, sh, dx, dy, dw, dh, ctm, dp);
++  if (cc_perf.enabled) {
++    int k = dp->op == OP_SOURCE_OVER && dp->alpha >= 1 && !dp->clip ? OP_COUNT : dp->op;
++    cc_perf.draw[k] += cc_now() - t;
++    cc_perf.calls[k]++;
++  }
++}
++void raster_fill_rect(Surface *dst, double x, double y, double w, double h,
++                       const Matrix *ctm, const PaintSampler *ps, const DrawParams *dp) {
++  double t = cc_perf.enabled ? cc_now() : 0;
++  cc_raster_fill_rect(dst, x, y, w, h, ctm, ps, dp);
++  if (cc_perf.enabled) cc_perf.fill_ms += cc_now() - t;
++}
+--- a/runtime/gfx/ccperf.h
++++ b/runtime/gfx/ccperf.h
+@@ -0,0 +1,15 @@
++#pragma once
++#include <time.h>
++#include <stdint.h>
++#include "surface.h"
++typedef struct {
++  int enabled;
++  double draw[OP_COUNT + 1], fill_ms, image_ms, canvas_ms;
++  uint64_t calls[OP_COUNT + 1];
++} CCPerf;
++extern CCPerf cc_perf;
++static inline double cc_now(void) {
++  struct timespec ts;
++  clock_gettime(CLOCK_MONOTONIC, &ts);
++  return ts.tv_sec * 1000.0 + ts.tv_nsec / 1e6;
++}

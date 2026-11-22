@@ -1,4 +1,122 @@
-# Performance (TrimUI Smart Pro, SpruceOS, Mali-G57)
+# Performance (TrimUI Smart Pro S, SpruceOS, Mali-G57)
+
+## Native compositing: real-display evidence, 2026-11-23
+
+The previous claim that only a new GPU renderer could improve the heavy map was
+incorrect. The `js` timer includes native Canvas2D. Four `destination-out`
+`drawImage` calls consumed about 16.26 ms/frame on `arid.forest-1`; this was a
+larger target than widening the already optimized opaque-copy loop.
+
+**Scope:** 17 new lines in shared `gfx/surface.h::blend_pixel`:
+- specialize `destination-out`: preserve RGB for positive unrounded alpha and
+  round alpha as `(da * (255 - a) + 127) / 255`; clear all channels only when
+  the reference produces exactly zero unrounded alpha;
+- specialize source-over when destination alpha is 255: simplify the original
+  integer expression, retaining its truncation rather than introducing a new
+  rounding rule.
+
+No game JavaScript, resolution, effects, update rules, input implementation,
+GPU backend, dependency, allocation or runtime option was changed. The build
+script applies both the existing raster patch and the new composite patch;
+`QUIX_FAST_OPAQUE_BLIT=0` disables only the former.
+
+### Matched hardware experiment
+
+Spruce principal -> standard_launch -> SDL/GLES on the real 1280x720 display.
+Canvas 568x320, preset 5 then `ig.game.teleport("arid.forest-1", null)`, player
+(856,936,0), camera (580,772). Lighting, weather, particles and speedlines all
+true; all assist multipliers remained 1. CPU4 reported 1992000 kHz at the start
+and end of every accepted run. Gamepad input was excluded **only in the test
+processes** with `SDL_GAMECONTROLLER_IGNORE_DEVICES=0x045e/0x028e`; every sampled
+pad state was null. The original game saves were never used as writable test
+files: a separate real assets directory linked immutable resources and copied
+`cc.save*`; NW.js dataPath resolved into that sandbox.
+
+Order A/B/C/B/A, 30 seconds of map warmup. The first three runs completed
+120-second windows. A return attempt moved the player four pixels after about
+90 seconds and was rejected; its replacement and the final A used 60 seconds.
+All reported rows use the **same first 60 seconds**, chosen by monotonic time,
+not by FPS. Every sampled map, player, camera, canvas size and effects setting
+matched. Invalid loading, input-contaminated and moving-scene attempts are not
+included in the results.
+
+| Arm | Frames | Rendered FPS | Frame p50 ms | Frame p95 ms | Frames >33.33 ms |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| A: previous blit patch / `SDL_F0` | 1317 | 21.96 | 45.04 | 48.20 | 1317 |
+| B: destination-out / `SDL_F1` | 1875 | 31.26 | 31.78 | 33.65 | 125 |
+| C: both specializations / `SDL_F2` | 1976 | 32.95 | 30.09 | 32.47 | 16 |
+| B return / `SDL_F3R` | 1860 | 31.01 | 32.06 | 33.90 | 152 |
+| A return / `SDL_F4` | 1305 | 21.77 | 45.75 | 47.65 | 1305 |
+
+FPS is frame count / summed complete frame intervals, not median per-second
+`--fps`. p50/p95 are quantiles of actual frame intervals; frames overlapping
+measurement boundaries are excluded. Raw CSVs, measurement timestamps, states,
+config/effects snapshots, binary hashes and summaries are in
+[`benchmarks/results/20261123-native-compositing`](../benchmarks/results/20261123-native-compositing).
+
+The combined gain against the mean of A controls is **11.09 FPS
+(+50.7%)**. Destination-out alone adds 9.27 FPS;
+source-over adds a further 1.81 FPS. A drift is
+0.20 FPS; B drift is
+0.26 FPS.
+
+Native mean `destination-out` time falls from about 16.26 to 3.26 ms/frame.
+The source-over specialization reduces the plain drawImage bin from about
+6.70 to 4.99 ms/frame. These timers are nested inside the JS/native phase;
+they must not be added to inclusive JS or canvas timers. All runs reported zero
+VmSwap at exit. RSS/HWM are preserved in metadata; their end measurements occur
+after 60 or 120 seconds and are **not a matched memory-regression experiment**.
+
+### Correctness and clean-build validation
+
+- Host and real aarch64 device: **16,777,216 cases per specialization** comparing
+  all 8-bit alpha/channel combinations with the previous implementation.
+  Destination-out uses `blend_pixel_slow` as oracle; source-over uses the original
+  integer source-over formula, not the differently rounded floating-point path.
+- Host AddressSanitizer + UndefinedBehaviorSanitizer passed both suites.
+- A test-only shadow runtime copied each destination surface, executed the
+  previous blending on one copy and the new blending on the other, then compared
+  every byte after each drawImage/fillRect. Real arid and Bergen gameplay passed
+  **11,679 native operations**, with no mismatches. Repeated comparisons
+  of the same surfaces are not physical display overdraw. This slow validation
+  build was not used for FPS measurements.
+- Clean release build contains only the raster and composite patches, no CSV
+  timing or shadow-verification code. Built twice through the updated build
+  script, including its already-applied patch path; the SHA stayed identical.
+  Aarch64 ELF requires GLIBC up to 2.27. Release SHA-256:
+  `ee3bed2c824d8f044d7982b81c24e221f1e133e6be8c966e152b7c2a6ab5c30d`.
+- The exact clean binary ran through principal-flow SDL in arid and Bergen;
+  KMS captures show lighting, fog, particles/snow and HUD intact. A synthetic
+  right-input check moved the player from (856,936) to (973.21,936). This is not
+  a new physical-controller validation.
+- Original executable, launcher, boot/config and all three save files retained
+  their pre-test SHA-256 values. The temporary menu launcher and save sandbox
+  were removed; no test process or pending launch remained. MainUI returned and
+  its idle-clock display was captured through DRM/KMS. The clean candidate
+  remains separately staged, not substituted for the production executable.
+
+**Limit:** the combined run has p95 32.47 ms and p99
+33.20 ms, but 16/1976 frames exceed 33.33 ms
+(99.19% are within budget). This is evidence for this animated idle heavy
+scene, **not a guarantee of locked 30 FPS in every fight or map**. No 30 FPS cap
+was added. Long combat replays and every-map coverage remain unverified.
+
+Build: `bash build/build_crosscode_quixjs.sh`. Pixel tests:
+`bash tests/run-composite.sh /path/to/patched/quixjs`.
+`benchmarks/native-timing.patch`, `benchmarks/shadow-blend.patch`,
+`benchmarks/native-sandbox.py` and `benchmarks/native-scene.py` retain the tested
+measurement/verification fixtures. They are not applied by the shipping build.
+The fixtures require device Python 3 and upstream `tools/console.py` copied next
+to the port config. Their paths are intentionally pinned to the measured deployment. Apply
+native-timing to either A or C before an instrumented build; apply shadow-blend
+after both shipping patches and native-timing for correctness-only validation.
+Use Spruce's standard PORTS launch flow for SDL and do not run it alongside MainUI.
+The baseline A contains the earlier packed-blit/overlap guard, not an unrelated
+stock-runtime upgrade. Licensed game assets and saves are not included.
+
+## Earlier experiments
+
+
 
 Measured with `quixjs --fps` (the line it prints once a second: JS time, present
 time) and `--profile` (JavaScriptCore sampling profiler, 10 ms samples).
@@ -14,8 +132,8 @@ Both runs with the same build and the same map. The port ships scale 1.
 
 In game (cargo ship, light map) the same build reports ~56 fps with 15 ms of JS;
 heavy outdoor maps sit around 20 fps with ~42 ms of JS. `present` stays at
-~2.2 ms throughout, so the ceiling is the game's JavaScript, not the blitter or
-the display path.
+~2.2 ms throughout. The `js` timer includes synchronous native Canvas2D work;
+this split does **not** establish a JavaScript-only bottleneck.
 
 ## Profiler (900 frames, dummy backend, 1850 samples)
 
@@ -36,7 +154,8 @@ biggest lever. PNG decode is load-time only.
 ## What was tried and did not help
 
 * CPU governor `performance`, big cores 1992 -> 2160 MHz: 21.4 fps vs 22.6 fps,
-  i.e. noise. Restored to the SpruceOS default; the port is not frequency-bound.
+  i.e. inconclusive in that experiment. Restored to the SpruceOS default; this
+  does not establish that the port is frequency-independent.
 * `js_memory` 256 MB: memory footprint ~460 MB RSS; lowering it is not a speed
   win, the allocation rate is small (~2.7 MB/s).
 
@@ -165,14 +284,17 @@ attribution objection.
 Independent review also found a correctness gap in the original patch: an opaque
 `memcpy(d, s, 16)` is undefined behaviour when source and destination storage
 overlap, while the baseline per-pixel loop has defined read-before-write order.
-The patch now disables packed processing for overlapping surfaces and keeps the
-original scalar loop for those calls. Headless A/B/A for the guard (flag 1,
+The Canvas2D binding already copies the source for `drawImage(canvas, ...)`
+when source and destination are the same canvas. The patch additionally disables
+packed processing for overlapping surface storage and keeps the scalar loop for
+those calls. Whole-buffer intersection also covers partially overlapping rows;
+the earlier claim that it could miss such rows was incorrect. Headless A/B/A for the guard (flag 1,
 preset 5): 43.05 FPS with guard vs 41.90/42.05 without, i.e. no regression.
 
 A 16-pixel NEON grouping was also tested (real build, flag 1, preset 5): 44.80
-FPS against 42.80/41.80 control arms: +2.0 FPS, js -1.35 ms at 1.0 FPS control
+FPS against 42.80/41.80 control arms: +2.50 FPS, js -1.35 ms at 1.0 FPS control
 drift. The js delta clears the review's 0.5 ms decision threshold, but the FPS
-signal is only ~2x drift and no real-display A/B/A was run, so it was **not**
+signal is only 2.5x control drift and no real-display A/B/A was run, so it was **not**
 adopted: it adds a 15-line hot-path branch and the same shared-store aliasing
 risk. Following the review's ordering, the smaller 8-pixel scalar grouping with
 the original 4-pixel fallback was tested last: 42.30 FPS vs 42.05/42.00 controls,
@@ -180,16 +302,13 @@ js -0.15 ms at 0.05 FPS drift — below the 0.5 ms threshold, so the falsifier
 fired and packed-loop micro-optimization stops here. Neither experiment changed
 the shipped patch.
 
-GPU canvas backend (authorized experiment): quixjs 0.5.1 hooks provide
-`gpu-canvas`, but it accelerates only fillRect/clearRect/fill/stroke with colors
-and gradients; `drawImage` falls back to the software path. CrossCode calls
-`getContext("2d")` on its own canvases and its hot path is `drawImage` (46.2% of
-profiled time). The hook was installed on the real hot function
-`ig.Image.prototype.draw` (`--test` confirmed "Hooks: 1") and measured headless
-on preset 5: 37.30 FPS / 26.30 ms js vs 37.80 and 36.40 FPS / 25.95 and 27.00 ms
-js in control arms — inside the 1.4 FPS / 1.05 ms control drift. No GPU win.
-Implementing textured-quad drawImage in quixjs `gfx/gpu2d.c` would be a new
-renderer with blending/alpha/smoothing parity risks, outside this patch.
+GPU canvas investigation: the 0.5.1 `gpu2d` API supports fill/clear rectangles
+and fill masks, not textured `drawImage`. However, the earlier hook comparison
+(37.30 vs 37.80/36.40 FPS) used `-b dummy`: it cannot exercise the real GPU
+backend and is **not GPU performance evidence**. `--test` confirming "Hooks: 1"
+proves configuration parsing, not GPU activation. A textured drawImage backend
+remains possible with pixel-parity validation; unchanged visuals do not prohibit
+a renderer implementation change.
 
 Upstream quixjs 0.5.1, tested in the same harness with `port.toml` and assets
 unchanged, gave 48.85 FPS / 19.90 ms js against baseline arms 47.80 and 46.35
@@ -201,8 +320,8 @@ Profile of the same fixed scene (0.2.2, 4184 frames): `drawImage` 46.2%
 (load only), `get globalCompositeOperation` 1.5% (394075 calls). Caller
 attribution with a temporary stack-counting wrapper: transformed sprite `draw`
 at `game.compiled.js:385` ~67% of calls, effect `draw` at `:1163` ~31%. Those
-paths apply rotation/scale/alpha, so removing them would change pixels; a real
-fix needs a Canvas2D drawImage backend, not another pixel-loop tweak.
+paths apply rotation/scale/alpha, so removing the effects would change pixels.
+This does not rule out exact CPU optimizations within native compositing.
 
 Deterministic pixel check: `-b dummy --fixed-step --frames 300 --screenshot`
 with flag 0 and 1 produced identical PNG SHA-256 on device; the 30,000-case

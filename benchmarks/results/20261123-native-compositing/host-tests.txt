@@ -1,0 +1,2 @@
+PASS destination-out: 16777216 exhaustive alpha/channel cases
+PASS source-over opaque destination: 16777216 alpha/source/destination cases

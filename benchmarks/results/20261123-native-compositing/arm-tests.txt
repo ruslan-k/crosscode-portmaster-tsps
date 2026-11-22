@@ -1,0 +1,4 @@
+ee3bed2c824d8f044d7982b81c24e221f1e133e6be8c966e152b7c2a6ab5c30d  /mnt/SDCARD/Roms/PORTS/crosscode-qx/perf-next-20261122/quix-release.aarch64
+69a77aa180c5c900967e3991f5991bbfa23623794ceb17fac43e46c8d92e77df  /mnt/SDCARD/Roms/PORTS/crosscode-qx/perf-next-20261122/quix-verify.aarch64
+PASS destination-out: 16777216 exhaustive alpha/channel cases
+PASS source-over opaque destination: 16777216 alpha/source/destination cases

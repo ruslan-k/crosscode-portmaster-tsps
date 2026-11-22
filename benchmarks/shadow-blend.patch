@@ -1,0 +1,122 @@
+--- a/runtime/gfx/surface.h
++++ b/runtime/gfx/surface.h
+@@ -75,7 +75,53 @@
+ // todos los dibujos) van en linea y con enteros; el resto en blend_pixel_slow.
+ void blend_pixel_slow(uint8_t *dst, int r, int g, int b, int a, CompositeOp op);
+ 
++extern _Thread_local int cc_reference_blend;
++static inline void cc_original_blend_pixel(uint8_t *dst, int r, int g, int b, int a, CompositeOp op) {
++  if (op == OP_SOURCE_OVER) {
++    if (a <= 0) return;
++    if (a >= 255 || dst[3] == 0) {
++      dst[0] = (uint8_t)r; dst[1] = (uint8_t)g; dst[2] = (uint8_t)b; dst[3] = (uint8_t)a;
++      return;
++    }
++    int da = dst[3];
++    int oa = a * 255 + da * (255 - a);           // alpha * 255
++    int k = da * (255 - a) / 255;
++    dst[0] = (uint8_t)((r * a + dst[0] * k) * 255 / oa);
++    dst[1] = (uint8_t)((g * a + dst[1] * k) * 255 / oa);
++    dst[2] = (uint8_t)((b * a + dst[2] * k) * 255 / oa);
++    dst[3] = (uint8_t)((oa + 127) / 255);
++    return;
++  }
++  if (op == OP_LIGHTER) {
++    // suma de colores premultiplicados (con tope)
++    if (a <= 0) return;
++    int da = dst[3];
++    if (da == 255) {
++      // destino opaco (una mascara de luces): suma con tope, sin divisiones
++      int ka = a + (a >> 7);   // a/255 como a/256 aproximado
++      int v0 = dst[0] + ((r * ka) >> 8), v1 = dst[1] + ((g * ka) >> 8), v2 = dst[2] + ((b * ka) >> 8);
++      dst[0] = (uint8_t)(v0 > 255 ? 255 : v0);
++      dst[1] = (uint8_t)(v1 > 255 ? 255 : v1);
++      dst[2] = (uint8_t)(v2 > 255 ? 255 : v2);
++      return;
++    }
++    int oa = a + da;
++    if (oa > 255) oa = 255;
++    int c[3] = { r, g, b };
++    for (int i = 0; i < 3; i++) {
++      int pc = (c[i] * a + dst[i] * da + 127) / 255;   // premultiplicado
++      if (pc > 255) pc = 255;
++      int v = pc * 255 / oa;
++      dst[i] = (uint8_t)(v > 255 ? 255 : v);
++    }
++    dst[3] = (uint8_t)oa;
++    return;
++  }
++  blend_pixel_slow(dst, r, g, b, a, op);
++}
++
+ static inline void blend_pixel(uint8_t *dst, int r, int g, int b, int a, CompositeOp op) {
++  if (cc_reference_blend) { cc_original_blend_pixel(dst, r, g, b, a, op); return; }
+   if (op == OP_SOURCE_OVER) {
+     if (a <= 0) return;
+     if (a >= 255 || dst[3] == 0) {
+--- a/runtime/gfx/raster.c
++++ b/runtime/gfx/raster.c
+@@ -25,6 +25,31 @@
+ #include "raster.h"
+ #include "ccperf.h"
+ CCPerf cc_perf;
++#include <stdio.h>
++#include <unistd.h>
++_Thread_local int cc_reference_blend;
++static unsigned long cc_verify_calls[OP_COUNT];
++static unsigned long long cc_verify_pixels;
++static int cc_verifying(void) {
++  const char *path = getenv("CC_VERIFY_BLEND");
++  return path && access(path, F_OK) == 0;
++}
++static void cc_match(const Surface *a, Surface *b, CompositeOp op) {
++  size_t bytes = (size_t)a->w * a->h * 4;
++  if (memcmp(a->px, b->px, bytes)) {
++    fprintf(stderr, "CC_VERIFY FAIL op=%d size=%dx%d\n", op, a->w, a->h);
++    abort();
++  }
++  cc_verify_calls[op]++;
++  cc_verify_pixels += bytes / 4;
++  surface_free(b);
++}
++__attribute__((destructor)) static void cc_verify_report(void) {
++  if (!cc_verifying()) return;
++  fprintf(stderr, "CC_VERIFY PASS source-over=%lu destination-out=%lu compared-pixels=%llu\n",
++          cc_verify_calls[OP_SOURCE_OVER], cc_verify_calls[OP_DESTINATION_OUT], cc_verify_pixels);
++}
++
+ 
+ // ------------------------------------------------------------------ path
+ 
+@@ -906,6 +931,15 @@
+                        double dx, double dy, double dw, double dh,
+                        const Matrix *ctm, const DrawParams *dp) {
+   double t = cc_perf.enabled ? cc_now() : 0;
++  if (cc_verifying() && (dp->op == OP_SOURCE_OVER || dp->op == OP_DESTINATION_OUT)) {
++    Surface expected;
++    if (surface_copy(&expected, dst)) abort();
++    cc_reference_blend = 1;
++    cc_raster_draw_image(&expected, src, sx, sy, sw, sh, dx, dy, dw, dh, ctm, dp);
++    cc_reference_blend = 0;
++    cc_raster_draw_image(dst, src, sx, sy, sw, sh, dx, dy, dw, dh, ctm, dp);
++    cc_match(dst, &expected, dp->op);
++  } else
+   cc_raster_draw_image(dst, src, sx, sy, sw, sh, dx, dy, dw, dh, ctm, dp);
+   if (cc_perf.enabled) {
+     int k = dp->op == OP_SOURCE_OVER && dp->alpha >= 1 && !dp->clip ? OP_COUNT : dp->op;
+@@ -916,6 +950,15 @@
+ void raster_fill_rect(Surface *dst, double x, double y, double w, double h,
+                        const Matrix *ctm, const PaintSampler *ps, const DrawParams *dp) {
+   double t = cc_perf.enabled ? cc_now() : 0;
++  if (cc_verifying() && (dp->op == OP_SOURCE_OVER || dp->op == OP_DESTINATION_OUT)) {
++    Surface expected;
++    if (surface_copy(&expected, dst)) abort();
++    cc_reference_blend = 1;
++    cc_raster_fill_rect(&expected, x, y, w, h, ctm, ps, dp);
++    cc_reference_blend = 0;
++    cc_raster_fill_rect(dst, x, y, w, h, ctm, ps, dp);
++    cc_match(dst, &expected, dp->op);
++  } else
+   cc_raster_fill_rect(dst, x, y, w, h, ctm, ps, dp);
+   if (cc_perf.enabled) cc_perf.fill_ms += cc_now() - t;
+ }

@@ -1,13 +1,14 @@
-# CrossCode — PortMaster port for TrimUI Smart Pro (SpruceOS)
+# CrossCode — PortMaster port for TrimUI Smart Pro S (SpruceOS)
 
-Port of **CrossCode 1.4.2-2** to the TrimUI Smart Pro (TSPS, 1280x720, Mali-G57)
+Port of **CrossCode 1.4.2-2** to the TrimUI Smart Pro S (TSPS, 1280x720, Mali-G57)
 running the game's own web assets on **quixjs 0.2.2** — a JS runtime in C
 (JavaScriptCore + SDL2 + OpenGL ES 2), https://github.com/lowlevel-1989/quixjs.
 No Electron, no Chromium, no browser.
 
-Status: playable — picture, sound, gamepad, saves. ~55 fps in light maps
-(~15 ms of JS per frame), ~20 fps in the heavy outdoor maps; the game draws a
-568x320 canvas scaled to 1280x720.
+Status: playable — picture, sound, gamepad, saves. The stock runtime reaches
+~55 fps in light maps and ~20 fps in heavy outdoor maps. The game draws a
+568x320 canvas scaled to 1280x720. Patched-runtime measurements and their
+limitations are in [docs/PERFORMANCE.md](docs/PERFORMANCE.md).
 
 ## What is in this repo
 
@@ -97,10 +98,9 @@ Other knobs, in the launcher and the toml:
 
 ## Known issues
 
-* Heavy outdoor maps stay around 20 fps: the cost is the game's own JS, not the
-  renderer (`present` is ~2.2 ms). Turning off lighting, weather, env-particles
-  or speedlines in *Options > Video* is the cheap lever; the effects stay on by
-  default.
+* Heavy outdoor maps can stay around 20 fps with the stock runtime. The `js`
+  timer includes native software Canvas2D rendering; a ~2.2 ms `present` does
+  not establish a JavaScript-only bottleneck. All effects remain enabled.
 * Gamepad rumble and the game's own "fullscreen" option are inert (the runtime
   is already fullscreen).
 * Saves go to `crosscode-qx/gamedata/assets/cc.save` (+ `.backup`, `.backup2`);
@@ -109,8 +109,18 @@ Other knobs, in the launcher and the toml:
 
 ## Experimental performance work
 
-A separate opt-in raster build and A/B controls are described in
-[docs/PERFORMANCE.md](docs/PERFORMANCE.md). The new default canvas size matches
-`IG_GAME_SCALE=1` at 568x320; the existing game effects remain enabled.
-The raster optimization requires rebuilding quixjs, and FPS improvements
-have **not** been verified on a TrimUI device.
+The packed-blit and compositing patches require a rebuilt runtime;
+`install.sh` still downloads the stock upstream binary. Build and test with:
+
+```sh
+bash build/build_crosscode_quixjs.sh
+bash tests/run-composite.sh build/quixjs-0.2.2
+```
+
+The result is `build/quixjs-crosscode.aarch64`. To use it in an assembled port,
+back up its original `quixjs.aarch64`, then copy the rebuilt executable there
+under that name. Keep `libs.aarch64/` and the game assets unchanged.
+`QUIX_FAST_OPAQUE_BLIT=0` disables only the packed blit, not the exact
+compositing specializations; retain the original executable for a full rollback.
+Real-device results and benchmark scope are in
+[docs/PERFORMANCE.md](docs/PERFORMANCE.md).
