@@ -97,14 +97,46 @@ equivalence smoke test of the two pixel loops passed.
 
 Device A/B (2026-11-21, TSPS, one built binary, scale 1, all four effects on,
 map `arid.forest-1`, 120 s windows) measured median 22.7 fps / js 41.7 ms with
-the flag at 0 and 16.6 fps / js 57.8 ms with it at 1. The two screenshots show
-different scenes (different spawn/camera), so this does NOT isolate the fast
-path; treat it as a warning, not a proven regression. The default is therefore
-0 and the flag stays opt-in until a fixed-spawn A/B can be run. No full visual
-regression has been performed.
-If the fast path is slower for translucent effects, leave the flag at `0`.
+the flag at 0 and 16.6 fps / js 57.8 ms with it at 1. Those screenshots showed
+different spawn/camera/scenes, so that comparison is **rejected as invalid**;
+it is not evidence of a regression.
 
-The large remaining optimization would be an accelerated Canvas2D drawImage
-backend with draw batching or targeted native hooks in the game's compiled
-effect functions. Both require game assets and real profiler traces to make
-safely. This patch is a small A/B, not a 60-FPS guarantee.
+Controlled re-test (2026-11-22, TSPS, `benchmarks/run-ab.sh`): pristine save
+restored before every arm, fixed preset 3 -> `autumn.entrance`, identical dialog
+dismissal and 90 s steady window, A/B/A on the SAME patched binary:
+
+| arm | flag | median FPS | median js | p95 js |
+| --- | --- | --- | --- | --- |
+| A2 | 0 | 46.10 | 21.10 ms | 34.40 ms |
+| B  | 1 | 49.00 | 19.90 ms | 31.20 ms |
+| A3 | 0 | 46.65 | 20.90 ms | 31.20 ms |
+
+Flag effect vs mean of off arms: +2.62 FPS / -1.10 ms js; off-arm drift
++0.55 FPS / -0.20 ms. This is a headless `-b dummy` run (present ~0.3 ms vs
+~2.3 ms on the real SDL path) on a moderately heavy map: a modest repeatable
+win, NOT the 30 FPS target. The flag stays opt-in (default 0) until a real
+display A/B on `arid.forest-1` confirms it.
+
+Upstream quixjs 0.5.1, tested in the same harness with `port.toml` and assets
+unchanged, gave 48.85 FPS / 19.90 ms js against baseline arms 47.80 and 46.35
+FPS / 20.45 and 21.05 ms js. Its ~1.8 FPS gain is within the ~3% A->A drift,
+so a runtime swap is not justified by these data.
+
+Profile of the same fixed scene (0.2.2, 4184 frames): `drawImage` 46.2%
+(824296 calls, 51.66 us/call ~10 ms/frame), `fillRect` 5.3%, PNG `decode` 5.1%
+(load only), `get globalCompositeOperation` 1.5% (394075 calls). Caller
+attribution with a temporary stack-counting wrapper: transformed sprite `draw`
+at `game.compiled.js:385` ~67% of calls, effect `draw` at `:1163` ~31%. Those
+paths apply rotation/scale/alpha, so removing them would change pixels; a real
+fix needs a Canvas2D drawImage backend, not another pixel-loop tweak.
+
+Deterministic pixel check: `-b dummy --fixed-step --frames 300 --screenshot`
+with flag 0 and 1 produced identical PNG SHA-256 on device; the 30,000-case
+host equivalence test covers mixed-alpha patterns.
+
+Reproduce any further A/B with `benchmarks/run-ab.sh LABEL BINARY LIBDIR SECONDS`
+(`AB_BASE` overrides the results directory, which must contain `saves-backup/cc.save*`).
+It restores the pristine save before every arm, loads preset 3, dismisses the
+one-time dialog, fails closed on a scene mismatch and samples `--fps` only in
+the steady window. Compare A/B/A, not two arms; a per-second `--fps` average is
+not a per-frame p95.
