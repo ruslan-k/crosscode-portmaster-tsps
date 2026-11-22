@@ -204,12 +204,13 @@ For a meaningful experiment, enter the *same outdoor map* with the *same
 effects enabled* and use two runs of equal duration:
 
 ```sh
-# Edit/set these in CrossCode.sh / PortMaster's environment before launching:
-QUIX_FAST_OPAQUE_BLIT=0 CROSSCODE_PROFILE=1  # baseline with patched runtime
-QUIX_FAST_OPAQUE_BLIT=1 CROSSCODE_PROFILE=1  # fast path enabled
+# Only in a disposable diagnostic launcher, launched through Spruce principal:
+QUIX_FAST_OPAQUE_BLIT=0 ./quixjs.aarch64 -c port.toml --fullscreen --fps --profile
+QUIX_FAST_OPAQUE_BLIT=1 ./quixjs.aarch64 -c port.toml --fullscreen --fps --profile
 ```
 
-`CROSSCODE_PROFILE=1` adds `--fps --profile` and writes sampling data.
+The production launcher has no FPS/profiler/debug command-line flags and no
+profiling environment switch. Keep these diagnostic commands out of it.
 Measure median FPS, p95 frame time and JS/canvas frame time; check both
 screenshots are pixel-identical. A host-only randomized **30,000-case**
 equivalence smoke test of the two pixel loops passed.

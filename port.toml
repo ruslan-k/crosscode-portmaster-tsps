@@ -1,5 +1,5 @@
 # CrossCode (1.4.2 mobile/PC web assets) on quixjs: vanilla JS + canvas2d.
-# The game is Impact/Cubic ("sc.*"), 568x320 at scale 2 = 1136x640.
+# The game is Impact/Cubic ("sc.*"), 568x320 with IG_GAME_SCALE=1.
 
 [engine]
 name      = "vanilla"
